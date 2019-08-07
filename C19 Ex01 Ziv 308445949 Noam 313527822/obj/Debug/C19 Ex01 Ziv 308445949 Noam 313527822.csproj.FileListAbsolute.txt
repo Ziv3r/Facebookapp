@@ -1,0 +1,14 @@
+C:\Users\ziv3r\source\repos\C19 Ex01 Ziv 308445949 Noam 313527822\C19 Ex01 Ziv 308445949 Noam 313527822\bin\Debug\C19 Ex01 Ziv 308445949 Noam 313527822.exe.config
+C:\Users\ziv3r\source\repos\C19 Ex01 Ziv 308445949 Noam 313527822\C19 Ex01 Ziv 308445949 Noam 313527822\bin\Debug\C19 Ex01 Ziv 308445949 Noam 313527822.exe
+C:\Users\ziv3r\source\repos\C19 Ex01 Ziv 308445949 Noam 313527822\C19 Ex01 Ziv 308445949 Noam 313527822\bin\Debug\C19 Ex01 Ziv 308445949 Noam 313527822.pdb
+C:\Users\ziv3r\source\repos\C19 Ex01 Ziv 308445949 Noam 313527822\C19 Ex01 Ziv 308445949 Noam 313527822\bin\Debug\Facebook.dll
+C:\Users\ziv3r\source\repos\C19 Ex01 Ziv 308445949 Noam 313527822\C19 Ex01 Ziv 308445949 Noam 313527822\bin\Debug\FbGraphApiWrapper.dll
+C:\Users\ziv3r\source\repos\C19 Ex01 Ziv 308445949 Noam 313527822\C19 Ex01 Ziv 308445949 Noam 313527822\obj\Debug\C19 Ex01 Ziv 308445949 Noam 313527822.csprojAssemblyReference.cache
+C:\Users\ziv3r\source\repos\C19 Ex01 Ziv 308445949 Noam 313527822\C19 Ex01 Ziv 308445949 Noam 313527822\obj\Debug\C19_Ex01_Ziv_308445949_Noam_313527822.Properties.Resources.resources
+C:\Users\ziv3r\source\repos\C19 Ex01 Ziv 308445949 Noam 313527822\C19 Ex01 Ziv 308445949 Noam 313527822\obj\Debug\C19 Ex01 Ziv 308445949 Noam 313527822.csproj.GenerateResource.cache
+C:\Users\ziv3r\source\repos\C19 Ex01 Ziv 308445949 Noam 313527822\C19 Ex01 Ziv 308445949 Noam 313527822\obj\Debug\C19 Ex01 Ziv 308445949 Noam 313527822.csproj.CoreCompileInputs.cache
+C:\Users\ziv3r\source\repos\C19 Ex01 Ziv 308445949 Noam 313527822\C19 Ex01 Ziv 308445949 Noam 313527822\obj\Debug\C19 Ex01 Ziv 308445949 Noam 313527822.csproj.CopyComplete
+C:\Users\ziv3r\source\repos\C19 Ex01 Ziv 308445949 Noam 313527822\C19 Ex01 Ziv 308445949 Noam 313527822\obj\Debug\C19 Ex01 Ziv 308445949 Noam 313527822.exe
+C:\Users\ziv3r\source\repos\C19 Ex01 Ziv 308445949 Noam 313527822\C19 Ex01 Ziv 308445949 Noam 313527822\obj\Debug\C19 Ex01 Ziv 308445949 Noam 313527822.pdb
+C:\Users\ziv3r\source\repos\C19 Ex01 Ziv 308445949 Noam 313527822\C19 Ex01 Ziv 308445949 Noam 313527822\obj\Debug\C19_Ex01_Ziv_308445949_Noam_313527822.LoginForm.resources
+C:\Users\ziv3r\source\repos\C19 Ex01 Ziv 308445949 Noam 313527822\C19 Ex01 Ziv 308445949 Noam 313527822\obj\Debug\C19_Ex01_Ziv_308445949_Noam_313527822.MainForm.resources
