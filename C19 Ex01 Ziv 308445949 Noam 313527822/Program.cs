@@ -19,8 +19,13 @@ namespace C19_Ex01_Ziv_308445949_Noam_313527822
             Application.SetCompatibleTextRenderingDefault(false);
             LoginForm loginForm = new LoginForm();
             Application.Run(loginForm);
-            Application.Run(new MainForm(loginForm.FaceBookuser));
+            Application.Run(new HomeForm(loginForm.FaceBookuser));
 
         }
     }
 }
+
+
+//Seperate ui and logic
+//how to get all the details about the homeform window to login form !?
+
