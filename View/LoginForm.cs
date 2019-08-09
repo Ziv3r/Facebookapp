@@ -11,7 +11,7 @@ using FacebookWrapper;
 using FacebookWrapper.ObjectModel;
 
 
-namespace C19_Ex01_Ziv_308445949_Noam_313527822
+namespace View
 {
     public partial class LoginForm : Form
     {
@@ -21,7 +21,7 @@ namespace C19_Ex01_Ziv_308445949_Noam_313527822
         private LoginResult m_LoginResult;
         //private LoginResult m_LoginResult;
 
-        private const string k_ApplicationId = "145016054195641";      //7
+        private const string k_ApplicationId = "1450160541956417";     
         private readonly string[] r_RequiredPermissions =
         {
              "public_profile",

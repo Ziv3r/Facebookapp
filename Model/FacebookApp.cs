@@ -6,16 +6,16 @@ using System.Windows.Forms;
 using FacebookWrapper;
 using FacebookWrapper.ObjectModel;
 
-namespace C19_Ex01_Ziv_308445949_Noam_313527822
+namespace View
 {
-    class FacebookApp
+    public class FacebookApp
     {
         public static AppSettings AppSettings { get; private set; }
 
         public User FaceBookuser { get; set; }
 
 
-        internal void Run()
+        public void Run()
         {
             AppSettings = AppSettings.LoadFromFile();
 

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using FacebookWrapper;
 using FacebookWrapper.ObjectModel;
 
-namespace C19_Ex01_Ziv_308445949_Noam_313527822
+namespace View
 {
     public partial class HomeForm : Form
     {

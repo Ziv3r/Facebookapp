@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.IO;
 using System.Xml.Serialization;
+using System.Drawing;
 
-namespace C19_Ex01_Ziv_308445949_Noam_313527822
+namespace Model
 {
     internal class AppSettings
     {

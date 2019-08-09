@@ -8,10 +8,11 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>C19_Ex01_Ziv_308445949_Noam_313527822</RootNamespace>
     <AssemblyName>C19 Ex01 Ziv 308445949 Noam 313527822</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>

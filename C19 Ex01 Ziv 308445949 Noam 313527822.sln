@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.645
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "C19 Ex01 Ziv 308445949 Noam 313527822", "C19 Ex01 Ziv 308445949 Noam 313527822\C19 Ex01 Ziv 308445949 Noam 313527822.csproj", "{B2D7D1F8-D199-42F7-BF51-7BEC1E191E46}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "View", "View\View.csproj", "{B2D7D1F8-D199-42F7-BF51-7BEC1E191E46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controller", "Controller\Controller.csproj", "{2B0626FE-2424-4B41-B4E5-D7D327A250F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{B8EBB38B-5CB0-4569-9B73-412E724C6E52}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{B2D7D1F8-D199-42F7-BF51-7BEC1E191E46}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2D7D1F8-D199-42F7-BF51-7BEC1E191E46}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2D7D1F8-D199-42F7-BF51-7BEC1E191E46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B0626FE-2424-4B41-B4E5-D7D327A250F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B0626FE-2424-4B41-B4E5-D7D327A250F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B0626FE-2424-4B41-B4E5-D7D327A250F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B0626FE-2424-4B41-B4E5-D7D327A250F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8EBB38B-5CB0-4569-9B73-412E724C6E52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8EBB38B-5CB0-4569-9B73-412E724C6E52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8EBB38B-5CB0-4569-9B73-412E724C6E52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8EBB38B-5CB0-4569-9B73-412E724C6E52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
