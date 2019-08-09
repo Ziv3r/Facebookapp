@@ -10,7 +10,7 @@ using System.Xml.Serialization;
 
 namespace C19_Ex01_Ziv_308445949_Noam_313527822
 {
-    class AppSettings
+    internal class AppSettings
     {
         private const string k_SettingsFilePath = "AppSettings.xml";
         public const int k_DefaultMainFormWidth = 1200;
@@ -39,9 +39,8 @@ namespace C19_Ex01_Ziv_308445949_Noam_313527822
 
             try
             {
-                stream = new FileStream(k_SettingsFilePath, FileMode.Open);
+                stream = new FileStream(k_SettingsFilePath, FileMode.Open);           
                 XmlSerializer serializer = new XmlSerializer(typeof(AppSettings));
-
                 appSettings = serializer.Deserialize(stream) as AppSettings;
             }
             catch

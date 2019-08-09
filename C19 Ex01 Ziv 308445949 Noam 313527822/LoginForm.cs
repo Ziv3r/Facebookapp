@@ -15,9 +15,13 @@ namespace C19_Ex01_Ziv_308445949_Noam_313527822
 {
     public partial class LoginForm : Form
     {
-        private AppSettings m_AppSetting;
+
+        public event Action<User> OnLogin;
+
         private LoginResult m_LoginResult;
-        private const string k_ApplicationId = "1450160541956417";
+        //private LoginResult m_LoginResult;
+
+        private const string k_ApplicationId = "145016054195641";      //7
         private readonly string[] r_RequiredPermissions =
         {
              "public_profile",
@@ -40,51 +44,48 @@ namespace C19_Ex01_Ziv_308445949_Noam_313527822
                 "user_hometown"
     };
 
-        public LoginForm()
+        public LoginForm(Action<User> i_OnLogin)
         {
             InitializeComponent();
-            //m_AppSetting = AppSettings.LoadFromFile();
-
+            OnLogin += i_OnLogin;
         }
 
-        //protected override void OnShown(EventArgs e)
-        //{
-        //    base.OnShown(e);
-
-        //    if (m_AppSetting.RememberUser && !string.IsNullOrEmpty(m_AppSetting.LastAccessToken))
-        //    {
-        //        m_LoginResult = FacebookService.Connect(m_AppSetting.LastAccessToken);
-        //    }
-        //}
-
-        //protected override void OnFormClosing(FormClosingEventArgs e)
-        //{
-        //    base.OnFormClosing(e);
-        //    m_AppSetting.LastWindowsSize = this.Size;
-        //    m_AppSetting.LastWindowLocation = this.Location;
-        //    m_AppSetting.RememberUser = this.checkBoxRemmberMe.Checked; 
-        //    if (this.checkBoxRemmberMe.Checked)
-        //    {
-        //        m_AppSetting.LastAccessToken = m_LoginResult.AccessToken;
-        //    }
-        //    else
-        //    {
-        //        m_AppSetting.LastAccessToken = null;
-        //    }
-        //    m_AppSetting.SaveToFile();
-        //}
-
-        private void LoginForm_Load(object sender, EventArgs e)
+        protected override void OnShown(EventArgs e)
         {
+            base.OnShown(e);
+
+            AppSettings appSetting = FacebookApp.AppSettings;
+
+            if (appSetting.RememberUser && !string.IsNullOrEmpty(appSetting.LastAccessToken))
+            {
+                m_LoginResult = FacebookService.Connect(appSetting.LastAccessToken);
+                OnLogin(m_LoginResult.LoggedInUser);
+                Close();
+            }
         }
 
-        public User FaceBookuser { get; set; }
+       
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            FacebookApp.AppSettings.RememberUser = this.checkBoxRemmberMe.Checked;
+
+            if (FacebookApp.AppSettings.RememberUser == true)
+            {
+                FacebookApp.AppSettings.LastAccessToken = m_LoginResult.AccessToken;
+            }
+            else
+            {
+                FacebookApp.AppSettings.LastAccessToken = null;
+            }
+        }
+
 
         private void LoginBtn_Click(object sender, EventArgs e)
         {
             loginAndInit();
             Close();
         }
+
         private void loginAndInit()
         {
             m_LoginResult = FacebookService.Login(k_ApplicationId,
@@ -92,7 +93,7 @@ namespace C19_Ex01_Ziv_308445949_Noam_313527822
 
             if (!string.IsNullOrEmpty(m_LoginResult.AccessToken))
             {
-                FaceBookuser = m_LoginResult.LoggedInUser;
+                OnLogin(m_LoginResult.LoggedInUser);
             }
             else
             {
@@ -100,6 +101,10 @@ namespace C19_Ex01_Ziv_308445949_Noam_313527822
             }
         }
 
+
+        private void LoginForm_Load(object sender, EventArgs e)
+        {
+        }
     }
 }
 

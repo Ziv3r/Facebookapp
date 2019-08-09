@@ -11,20 +11,15 @@ namespace C19_Ex01_Ziv_308445949_Noam_313527822
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+
+
         [STAThread]
         static void Main()
         {
-
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            LoginForm loginForm = new LoginForm();
-            Application.Run(loginForm);
-            Application.Run(new HomeForm(loginForm.FaceBookuser));
-
+            new FacebookApp().Run();
         }
     }
 }
-
 
 //Seperate ui and logic
 //how to get all the details about the homeform window to login form !?

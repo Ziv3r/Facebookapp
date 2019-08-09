@@ -38,6 +38,17 @@ namespace C19_Ex01_Ziv_308445949_Noam_313527822
 
         }
 
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+            AppSettings appSettings = FacebookApp.AppSettings;
+
+            appSettings.LastWindowsSize = this.Size;
+            appSettings.LastWindowLocation = this.Location;
+            
+        }
+
+
         private void showFriendsBtn_Click(object sender, EventArgs e)
         {
             fetchFriends();
