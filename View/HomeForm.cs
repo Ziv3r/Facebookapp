@@ -1,36 +1,47 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using FacebookWrapper;
 using FacebookWrapper.ObjectModel;
+using Model;
 
 namespace View
 {
+    public delegate KeyValuePair<int, User> OnFindLove(User.eGender i_GenderOfInterest);
+    public delegate KeyValuePair<int, User> OnTinderSlide(String i_Side);
+
+
     public partial class HomeForm : Form
     {
-        User m_FaceBookUser;
-        Matcher m_Matcher;
+        public event OnFindLove OnFindLove;
+        public event OnTinderSlide OnTinderSlide;
 
+        User FaceBookUser { set; get; }
 
-        public HomeForm(User i_FaceBookUser)
+        public HomeForm(User i_FaceBookUser, OnFindLove i_OnFindLove, OnTinderSlide i_TinderSlide)
         {
-            InitializeComponent();
-            m_FaceBookUser = i_FaceBookUser;
-            initFrom();
+            FaceBookUser = i_FaceBookUser;
+            OnFindLove += i_OnFindLove;
+            OnTinderSlide += i_TinderSlide;
 
+            FacebookWrapper.FacebookService.s_CollectionLimit = 200;
+            FacebookWrapper.FacebookService.s_FbApiVersion = 2.8f;
+
+            AppSettings appSettings = FacebookApp.AppSettings;
+
+            InitializeComponent();
+            this.StartPosition = appSettings.LastFormStartPosition;
+            this.Width = appSettings.LastWindowsSize.Width;
+            this.Height = appSettings.LastWindowsSize.Height;
+            this.Location = appSettings.LastWindowLocation;
+
+            initForm();
         }
 
-        private void initFrom()
+        private void initForm()
         {
-            textBoxFirstName.Text = m_FaceBookUser.Name;
-            textBoxLastName.Text = m_FaceBookUser.LastName;
-            pictureBoxProfilePicture.LoadAsync(m_FaceBookUser.PictureNormalURL);
+            textBoxFirstName.Text = FaceBookUser.Name;
+            textBoxLastName.Text = FaceBookUser.LastName;
+            pictureBoxProfilePicture.LoadAsync(FaceBookUser.PictureNormalURL);
         }
 
         private void HomeForm_Load(object sender, EventArgs e)
@@ -45,7 +56,8 @@ namespace View
 
             appSettings.LastWindowsSize = this.Size;
             appSettings.LastWindowLocation = this.Location;
-            
+            appSettings.LastFormStartPosition = FormStartPosition.Manual;
+
         }
 
 
@@ -59,15 +71,15 @@ namespace View
             listBoxFriends.Items.Clear();
             listBoxFriends.DisplayMember = "Name";
 
-            foreach (User friend in m_FaceBookUser.Friends)
+            foreach (User friend in FaceBookUser.Friends)
             {
-                foreach (User userFriend in m_FaceBookUser.Friends)
+                foreach (User userFriend in FaceBookUser.Friends)
                 {
                     listBoxFriends.Items.Add(userFriend.Name.ToString());
                     friend.ReFetch(DynamicWrapper.eLoadOptions.Full);
                 }
 
-                if (m_FaceBookUser.Friends.Count == 0)
+                if (FaceBookUser.Friends.Count == 0)
                 {
                     MessageBox.Show("No Friends to retrieve :(");
                 }
@@ -90,7 +102,6 @@ namespace View
                 }
                 else
                 {
-                    //pictureBoxFriend.ErrorImage
                     pictureBoxFriend.Image = null;
                 }
             }
@@ -106,12 +117,12 @@ namespace View
             listBoxGroups.Items.Clear();
             listBoxGroups.DisplayMember = "Name";
 
-            foreach (Group userGroup in m_FaceBookUser.Groups)
+            foreach (Group userGroup in FaceBookUser.Groups)
             {
                 listBoxFriends.Items.Add(userGroup);
             }
 
-            if (m_FaceBookUser.Groups.Count == 0)
+            if (FaceBookUser.Groups.Count == 0)
             {
                 MessageBox.Show("No gropus to retrieve :(");
             }
@@ -119,7 +130,7 @@ namespace View
 
         private void buttonPost_Click(object sender, EventArgs e)
         {
-            Status postedStatus = m_FaceBookUser.PostStatus(textBoxPost.Text);
+            Status postedStatus = FaceBookUser.PostStatus(textBoxPost.Text);
             textBoxPost.Text = "";
             MessageBox.Show("Status Posted!");
         }
@@ -131,7 +142,7 @@ namespace View
 
         private void fetchPosts()
         {
-            foreach (Post post in m_FaceBookUser.Posts)
+            foreach (Post post in FaceBookUser.Posts)
             {
                 if (post.Message != null)
                 {
@@ -139,7 +150,7 @@ namespace View
                 }
             }
 
-            if (m_FaceBookUser.Posts.Count == 0)
+            if (FaceBookUser.Posts.Count == 0)
             {
                 MessageBox.Show("No Posts to retrieve :(");
             }
@@ -157,12 +168,89 @@ namespace View
 
         private void buttonFindLove_Click(object sender, EventArgs e)
         {
-            List<User> loveMatch = m_Matcher.getMatch();
+            KeyValuePair<int, User> loveMatch;
+            if (radioButtonFemale.Checked || radioButtonMale.Checked)
+            {
+                if (radioButtonMale.Checked)
+                {
+                     loveMatch = OnFindLove(User.eGender.male);
+                }
+                else
+                {
+                    loveMatch = OnFindLove(User.eGender.female);
+                }
+                
+                layOutTinderDetails(loveMatch);
+            }
+        }
+
+        private void layOutTinderDetails(KeyValuePair<int, User> loveMatch)
+        {
+            pictureBoxTinder.LoadAsync(loveMatch.Value.PictureNormalURL);
+            labelTinderName.Text = loveMatch.Key.ToString() + " " + loveMatch.Value.Name;
+            buttonTinderLeft.Visible = buttonTinderRight.Visible = true;
+            buttonFindLove.Enabled = false;
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+           
+        }
+        private void buttonTinderLeft_Click(object sender, EventArgs e)
+        {
+            KeyValuePair<int, User> loveMatch = OnTinderSlide("left");
+            layOutTinderDetails(loveMatch);
         }
 
         private void textBoxPost_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonShowEvents_Click(object sender, EventArgs e)
+        {
+            fetchEvents();
+        }
+        private void fetchEvents()
+        {
+            foreach (Event currentEvent in FaceBookUser.Events)
+            {
+                if (currentEvent.Description != null)
+                {
+                    listBoxPosts.Items.Add(currentEvent.Description);
+                }
+            }
+
+            if (FaceBookUser.Posts.Count == 0)
+            {
+                MessageBox.Show("No Events to retrieve :(");
+            }
+        }
+
+        private void pictureBoxTinder_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelGenderChoose_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonTinderRight_Click(object sender, EventArgs e)
+        {
+            KeyValuePair<int, User> loveMatch = OnTinderSlide("right");
+            layOutTinderDetails(loveMatch);
         }
     }
 }

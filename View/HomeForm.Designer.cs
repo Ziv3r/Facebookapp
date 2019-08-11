@@ -31,10 +31,21 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeForm));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.radioButtonFemale = new System.Windows.Forms.RadioButton();
+            this.radioButtonMale = new System.Windows.Forms.RadioButton();
+            this.labelGenderChoose = new System.Windows.Forms.Label();
+            this.buttonTinderLeft = new System.Windows.Forms.Button();
+            this.labelTinderName = new System.Windows.Forms.Label();
+            this.buttonTinderRight = new System.Windows.Forms.Button();
+            this.pictureBoxTinder = new System.Windows.Forms.PictureBox();
+            this.buttonFindLove = new System.Windows.Forms.Button();
             this.pictureBoxFriend = new System.Windows.Forms.PictureBox();
             this.listBoxFriends = new System.Windows.Forms.ListBox();
             this.friendsBtn = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.listBoxEvents = new System.Windows.Forms.ListBox();
+            this.buttonShowEvents = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.listBoxGroups = new System.Windows.Forms.ListBox();
             this.buttonGetGroups = new System.Windows.Forms.Button();
@@ -50,12 +61,10 @@
             this.labelPostStatus = new System.Windows.Forms.Label();
             this.textBoxPost = new System.Windows.Forms.TextBox();
             this.buttonPost = new System.Windows.Forms.Button();
-            this.buttonShowEvents = new System.Windows.Forms.Button();
-            this.listBoxEvents = new System.Windows.Forms.ListBox();
-            this.buttonFindLove = new System.Windows.Forms.Button();
-            this.listBoxFindLove = new System.Windows.Forms.ListBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTinder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFriend)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -78,7 +87,12 @@
             // tabPage1
             // 
             this.tabPage1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabPage1.BackgroundImage")));
-            this.tabPage1.Controls.Add(this.listBoxFindLove);
+            this.tabPage1.Controls.Add(this.groupBox2);
+            this.tabPage1.Controls.Add(this.labelGenderChoose);
+            this.tabPage1.Controls.Add(this.buttonTinderLeft);
+            this.tabPage1.Controls.Add(this.labelTinderName);
+            this.tabPage1.Controls.Add(this.buttonTinderRight);
+            this.tabPage1.Controls.Add(this.pictureBoxTinder);
             this.tabPage1.Controls.Add(this.buttonFindLove);
             this.tabPage1.Controls.Add(this.pictureBoxFriend);
             this.tabPage1.Controls.Add(this.listBoxFriends);
@@ -90,10 +104,106 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Friends";
             this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.radioButtonFemale);
+            this.groupBox2.Controls.Add(this.radioButtonMale);
+            this.groupBox2.Location = new System.Drawing.Point(877, 75);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(156, 118);
+            this.groupBox2.TabIndex = 20;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // radioButtonFemale
+            // 
+            this.radioButtonFemale.AutoSize = true;
+            this.radioButtonFemale.Location = new System.Drawing.Point(36, 59);
+            this.radioButtonFemale.Name = "radioButtonFemale";
+            this.radioButtonFemale.Size = new System.Drawing.Size(87, 24);
+            this.radioButtonFemale.TabIndex = 18;
+            this.radioButtonFemale.TabStop = true;
+            this.radioButtonFemale.Text = "Female";
+            this.radioButtonFemale.UseVisualStyleBackColor = true;
+            this.radioButtonFemale.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            // 
+            // radioButtonMale
+            // 
+            this.radioButtonMale.AutoSize = true;
+            this.radioButtonMale.Location = new System.Drawing.Point(36, 18);
+            this.radioButtonMale.Name = "radioButtonMale";
+            this.radioButtonMale.Size = new System.Drawing.Size(68, 24);
+            this.radioButtonMale.TabIndex = 17;
+            this.radioButtonMale.TabStop = true;
+            this.radioButtonMale.Text = "Male";
+            this.radioButtonMale.UseVisualStyleBackColor = true;
+            // 
+            // labelGenderChoose
+            // 
+            this.labelGenderChoose.AutoSize = true;
+            this.labelGenderChoose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.labelGenderChoose.Location = new System.Drawing.Point(873, 33);
+            this.labelGenderChoose.Name = "labelGenderChoose";
+            this.labelGenderChoose.Size = new System.Drawing.Size(150, 22);
+            this.labelGenderChoose.TabIndex = 16;
+            this.labelGenderChoose.Text = "Choose Gender";
+            this.labelGenderChoose.Click += new System.EventHandler(this.labelGenderChoose_Click);
+            // 
+            // buttonTinderLeft
+            // 
+            this.buttonTinderLeft.Location = new System.Drawing.Point(568, 106);
+            this.buttonTinderLeft.Name = "buttonTinderLeft";
+            this.buttonTinderLeft.Size = new System.Drawing.Size(53, 60);
+            this.buttonTinderLeft.TabIndex = 14;
+            this.buttonTinderLeft.Text = "<";
+            this.buttonTinderLeft.UseVisualStyleBackColor = true;
+            this.buttonTinderLeft.Visible = false;
+            this.buttonTinderLeft.Click += new System.EventHandler(this.buttonTinderLeft_Click);
+            // 
+            // labelTinderName
+            // 
+            this.labelTinderName.AutoSize = true;
+            this.labelTinderName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.labelTinderName.Location = new System.Drawing.Point(635, 273);
+            this.labelTinderName.Name = "labelTinderName";
+            this.labelTinderName.Size = new System.Drawing.Size(0, 25);
+            this.labelTinderName.TabIndex = 15;
+            // 
+            // buttonTinderRight
+            // 
+            this.buttonTinderRight.Location = new System.Drawing.Point(801, 106);
+            this.buttonTinderRight.Name = "buttonTinderRight";
+            this.buttonTinderRight.Size = new System.Drawing.Size(53, 60);
+            this.buttonTinderRight.TabIndex = 13;
+            this.buttonTinderRight.Text = ">";
+            this.buttonTinderRight.UseVisualStyleBackColor = true;
+            this.buttonTinderRight.Visible = false;
+            this.buttonTinderRight.Click += new System.EventHandler(this.buttonTinderRight_Click);
+            // 
+            // pictureBoxTinder
+            // 
+            this.pictureBoxTinder.Location = new System.Drawing.Point(627, 97);
+            this.pictureBoxTinder.Name = "pictureBoxTinder";
+            this.pictureBoxTinder.Size = new System.Drawing.Size(168, 150);
+            this.pictureBoxTinder.TabIndex = 12;
+            this.pictureBoxTinder.TabStop = false;
+            this.pictureBoxTinder.Click += new System.EventHandler(this.pictureBoxTinder_Click);
+            // 
+            // buttonFindLove
+            // 
+            this.buttonFindLove.Location = new System.Drawing.Point(626, 41);
+            this.buttonFindLove.Name = "buttonFindLove";
+            this.buttonFindLove.Size = new System.Drawing.Size(168, 42);
+            this.buttonFindLove.TabIndex = 11;
+            this.buttonFindLove.Text = "Find Love";
+            this.buttonFindLove.UseVisualStyleBackColor = true;
+            this.buttonFindLove.Click += new System.EventHandler(this.buttonFindLove_Click);
             // 
             // pictureBoxFriend
             // 
-            this.pictureBoxFriend.Location = new System.Drawing.Point(403, 43);
+            this.pictureBoxFriend.Location = new System.Drawing.Point(241, 95);
             this.pictureBoxFriend.Name = "pictureBoxFriend";
             this.pictureBoxFriend.Size = new System.Drawing.Size(139, 150);
             this.pictureBoxFriend.TabIndex = 2;
@@ -103,7 +213,7 @@
             // 
             this.listBoxFriends.FormattingEnabled = true;
             this.listBoxFriends.ItemHeight = 20;
-            this.listBoxFriends.Location = new System.Drawing.Point(188, 43);
+            this.listBoxFriends.Location = new System.Drawing.Point(30, 96);
             this.listBoxFriends.Name = "listBoxFriends";
             this.listBoxFriends.Size = new System.Drawing.Size(193, 264);
             this.listBoxFriends.TabIndex = 1;
@@ -111,9 +221,9 @@
             // 
             // friendsBtn
             // 
-            this.friendsBtn.Location = new System.Drawing.Point(20, 42);
+            this.friendsBtn.Location = new System.Drawing.Point(29, 24);
             this.friendsBtn.Name = "friendsBtn";
-            this.friendsBtn.Size = new System.Drawing.Size(162, 60);
+            this.friendsBtn.Size = new System.Drawing.Size(194, 60);
             this.friendsBtn.TabIndex = 0;
             this.friendsBtn.Text = "Show Friends";
             this.friendsBtn.UseVisualStyleBackColor = true;
@@ -130,6 +240,25 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Events";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // listBoxEvents
+            // 
+            this.listBoxEvents.FormattingEnabled = true;
+            this.listBoxEvents.ItemHeight = 20;
+            this.listBoxEvents.Location = new System.Drawing.Point(209, 30);
+            this.listBoxEvents.Name = "listBoxEvents";
+            this.listBoxEvents.Size = new System.Drawing.Size(193, 264);
+            this.listBoxEvents.TabIndex = 2;
+            // 
+            // buttonShowEvents
+            // 
+            this.buttonShowEvents.Location = new System.Drawing.Point(16, 29);
+            this.buttonShowEvents.Name = "buttonShowEvents";
+            this.buttonShowEvents.Size = new System.Drawing.Size(162, 60);
+            this.buttonShowEvents.TabIndex = 1;
+            this.buttonShowEvents.Text = "Show Events";
+            this.buttonShowEvents.UseVisualStyleBackColor = true;
+            this.buttonShowEvents.Click += new System.EventHandler(this.buttonShowEvents_Click);
             // 
             // tabPage3
             // 
@@ -270,43 +399,6 @@
             this.buttonPost.UseVisualStyleBackColor = true;
             this.buttonPost.Click += new System.EventHandler(this.buttonPost_Click);
             // 
-            // buttonShowEvents
-            // 
-            this.buttonShowEvents.Location = new System.Drawing.Point(16, 29);
-            this.buttonShowEvents.Name = "buttonShowEvents";
-            this.buttonShowEvents.Size = new System.Drawing.Size(162, 60);
-            this.buttonShowEvents.TabIndex = 1;
-            this.buttonShowEvents.Text = "Show Events";
-            this.buttonShowEvents.UseVisualStyleBackColor = true;
-            // 
-            // listBoxEvents
-            // 
-            this.listBoxEvents.FormattingEnabled = true;
-            this.listBoxEvents.ItemHeight = 20;
-            this.listBoxEvents.Location = new System.Drawing.Point(209, 30);
-            this.listBoxEvents.Name = "listBoxEvents";
-            this.listBoxEvents.Size = new System.Drawing.Size(193, 264);
-            this.listBoxEvents.TabIndex = 2;
-            // 
-            // buttonFindLove
-            // 
-            this.buttonFindLove.Location = new System.Drawing.Point(582, 42);
-            this.buttonFindLove.Name = "buttonFindLove";
-            this.buttonFindLove.Size = new System.Drawing.Size(168, 38);
-            this.buttonFindLove.TabIndex = 11;
-            this.buttonFindLove.Text = "Find Love";
-            this.buttonFindLove.UseVisualStyleBackColor = true;
-            this.buttonFindLove.Click += new System.EventHandler(this.buttonFindLove_Click);
-            // 
-            // listBoxFindLove
-            // 
-            this.listBoxFindLove.FormattingEnabled = true;
-            this.listBoxFindLove.ItemHeight = 20;
-            this.listBoxFindLove.Location = new System.Drawing.Point(765, 43);
-            this.listBoxFindLove.Name = "listBoxFindLove";
-            this.listBoxFindLove.Size = new System.Drawing.Size(193, 264);
-            this.listBoxFindLove.TabIndex = 12;
-            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -328,6 +420,10 @@
             this.Load += new System.EventHandler(this.HomeForm_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTinder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFriend)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
@@ -363,7 +459,14 @@
         private System.Windows.Forms.Button buttonShowPosts;
         private System.Windows.Forms.ListBox listBoxEvents;
         private System.Windows.Forms.Button buttonShowEvents;
-        private System.Windows.Forms.ListBox listBoxFindLove;
         private System.Windows.Forms.Button buttonFindLove;
+        private System.Windows.Forms.Label labelTinderName;
+        private System.Windows.Forms.Button buttonTinderLeft;
+        private System.Windows.Forms.Button buttonTinderRight;
+        private System.Windows.Forms.PictureBox pictureBoxTinder;
+        private System.Windows.Forms.Label labelGenderChoose;
+        private System.Windows.Forms.RadioButton radioButtonFemale;
+        private System.Windows.Forms.RadioButton radioButtonMale;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

@@ -9,18 +9,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FacebookWrapper;
 using FacebookWrapper.ObjectModel;
-
+using Model;
 
 namespace View
 {
     public partial class LoginForm : Form
     {
-
         public event Action<User> OnLogin;
 
-        private LoginResult m_LoginResult;
-        //private LoginResult m_LoginResult;
+        public LoginResult LoginResult { set; get; }
 
+        
         private const string k_ApplicationId = "1450160541956417";     
         private readonly string[] r_RequiredPermissions =
         {
@@ -58,8 +57,8 @@ namespace View
 
             if (appSetting.RememberUser && !string.IsNullOrEmpty(appSetting.LastAccessToken))
             {
-                m_LoginResult = FacebookService.Connect(appSetting.LastAccessToken);
-                OnLogin(m_LoginResult.LoggedInUser);
+                LoginResult = FacebookService.Connect(appSetting.LastAccessToken);
+                OnLogin(LoginResult.LoggedInUser);
                 Close();
             }
         }
@@ -67,11 +66,11 @@ namespace View
        
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
-            FacebookApp.AppSettings.RememberUser = this.checkBoxRemmberMe.Checked;
+            FacebookApp.AppSettings.RememberUser = checkBoxRememberMe.Checked;
 
-            if (FacebookApp.AppSettings.RememberUser == true)
+            if (FacebookApp.AppSettings.RememberUser)
             {
-                FacebookApp.AppSettings.LastAccessToken = m_LoginResult.AccessToken;
+                FacebookApp.AppSettings.LastAccessToken = LoginResult.AccessToken;
             }
             else
             {
@@ -82,22 +81,23 @@ namespace View
 
         private void LoginBtn_Click(object sender, EventArgs e)
         {
+            //desig pass : design.patterns19c
             loginAndInit();
             Close();
         }
 
         private void loginAndInit()
         {
-            m_LoginResult = FacebookService.Login(k_ApplicationId,
+            LoginResult = FacebookService.Login(k_ApplicationId,
                r_RequiredPermissions);
 
-            if (!string.IsNullOrEmpty(m_LoginResult.AccessToken))
+            if (!string.IsNullOrEmpty(LoginResult.AccessToken))
             {
-                OnLogin(m_LoginResult.LoggedInUser);
+                OnLogin(LoginResult.LoggedInUser);
             }
             else
             {
-                MessageBox.Show(m_LoginResult.ErrorMessage);
+                MessageBox.Show(LoginResult.ErrorMessage);
             }
         }
 

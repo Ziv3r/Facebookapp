@@ -1,39 +1,51 @@
-﻿using System;
+﻿using FacebookWrapper.ObjectModel;
+using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using FacebookWrapper;
-using FacebookWrapper.ObjectModel;
 
-namespace View
+namespace Model
 {
     public class FacebookApp
     {
         public static AppSettings AppSettings { get; private set; }
+        public User FacebookUser { get; set; }
+        public Matcher Matcher { get; private set; }
 
-        public User FaceBookuser { get; set; }
-
-
-        public void Run()
+        public FacebookApp()
         {
             AppSettings = AppSettings.LoadFromFile();
-
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-
-            LoginForm loginForm = new LoginForm(setUser);
-            Application.Run(loginForm);
-            Application.Run(new HomeForm(FaceBookuser));
-
-           
-            AppSettings.SaveToFile();
         }
 
-        //delegate for set user from login form 
-        public void setUser(User i_FaceBookUser)
+        public KeyValuePair<int, User> InitFindLove(User.eGender i_GenderOfInterest)
         {
-            FaceBookuser = i_FaceBookUser;
+            if (Matcher.m_FriendsMatch != null)
+            {
+                throw new ArgumentException("find love feature already initiated");
+            }
+
+            Matcher = new Matcher(FacebookUser);
+            Matcher.m_FriendsMatch = new List<KeyValuePair<int, User>>();
+            Matcher.m_FriendsMatch = Matcher.GetMatch(i_GenderOfInterest);
+            Matcher.IndexInMatchCollection = -1; // for first increament
+
+            return GetMatch("right");
         }
+
+        public KeyValuePair<int, User> GetMatch(string i_NextElement)
+        {
+            if (!i_NextElement.Equals("left") && !i_NextElement.Equals("right"))
+            {
+                throw new ArgumentException("next element parameter must be left or right");
+            }
+
+            int nextIndexHelper = i_NextElement == "left" ? -1 : 1;
+            Matcher.IndexInMatchCollection =
+                    (Matcher.IndexInMatchCollection + nextIndexHelper + Matcher.m_FriendsMatch.Count) % Matcher.m_FriendsMatch.Count;
+
+            return Matcher.m_FriendsMatch[Matcher.IndexInMatchCollection];
+        }
+
+
+
     }
 }

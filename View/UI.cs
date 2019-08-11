@@ -1,24 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using FacebookWrapper;
+﻿using System.Windows.Forms;
 using FacebookWrapper.ObjectModel;
+using Model;
 
 namespace View
 {
     public class UI
     {
-        public void Start(Action<User> On_Login)
+        public void Start()
         {
+            FacebookApp fbApp = new FacebookApp();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            LoginForm loginForm = new LoginForm(On_Login);
-
+            LoginForm loginForm = new LoginForm((User fbUser) => fbApp.FacebookUser = fbUser) ;
+                
             Application.Run(loginForm);
-            Application.Run(new HomeForm(FaceBookuser));
 
+            Application.Run(new HomeForm(fbApp.FacebookUser,fbApp.InitFindLove,fbApp.GetMatch));
+
+            FacebookApp.AppSettings.SaveToFile();
         }
     }
 }
+
+

@@ -1,0 +1,9 @@
+C:\Users\ziv3r\Desktop\summer semester\desgin patterns\C19 Ex01 Ziv 308445949 Noam 313527822\Model\obj\Debug\Model.csprojAssemblyReference.cache
+C:\Users\ziv3r\Desktop\summer semester\desgin patterns\C19 Ex01 Ziv 308445949 Noam 313527822\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\ziv3r\Desktop\summer semester\desgin patterns\C19 Ex01 Ziv 308445949 Noam 313527822\Model\bin\Debug\Model.dll
+C:\Users\ziv3r\Desktop\summer semester\desgin patterns\C19 Ex01 Ziv 308445949 Noam 313527822\Model\bin\Debug\Model.pdb
+C:\Users\ziv3r\Desktop\summer semester\desgin patterns\C19 Ex01 Ziv 308445949 Noam 313527822\Model\bin\Debug\Facebook.dll
+C:\Users\ziv3r\Desktop\summer semester\desgin patterns\C19 Ex01 Ziv 308445949 Noam 313527822\Model\bin\Debug\FbGraphApiWrapper.dll
+C:\Users\ziv3r\Desktop\summer semester\desgin patterns\C19 Ex01 Ziv 308445949 Noam 313527822\Model\obj\Debug\Model.csproj.CopyComplete
+C:\Users\ziv3r\Desktop\summer semester\desgin patterns\C19 Ex01 Ziv 308445949 Noam 313527822\Model\obj\Debug\Model.dll
+C:\Users\ziv3r\Desktop\summer semester\desgin patterns\C19 Ex01 Ziv 308445949 Noam 313527822\Model\obj\Debug\Model.pdb

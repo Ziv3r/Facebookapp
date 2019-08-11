@@ -1,0 +1,14 @@
+C:\Users\ziv3r\Desktop\summer semester\desgin patterns\C19 Ex01 Ziv 308445949 Noam 313527822\View\obj\Debug\View.csprojAssemblyReference.cache
+C:\Users\ziv3r\Desktop\summer semester\desgin patterns\C19 Ex01 Ziv 308445949 Noam 313527822\View\obj\Debug\View.HomeForm.resources
+C:\Users\ziv3r\Desktop\summer semester\desgin patterns\C19 Ex01 Ziv 308445949 Noam 313527822\View\obj\Debug\View.LoginForm.resources
+C:\Users\ziv3r\Desktop\summer semester\desgin patterns\C19 Ex01 Ziv 308445949 Noam 313527822\View\obj\Debug\C19_Ex01_Ziv_308445949_Noam_313527822.Properties.Resources.resources
+C:\Users\ziv3r\Desktop\summer semester\desgin patterns\C19 Ex01 Ziv 308445949 Noam 313527822\View\obj\Debug\View.csproj.GenerateResource.cache
+C:\Users\ziv3r\Desktop\summer semester\desgin patterns\C19 Ex01 Ziv 308445949 Noam 313527822\View\obj\Debug\View.csproj.CoreCompileInputs.cache
+C:\Users\ziv3r\Desktop\summer semester\desgin patterns\C19 Ex01 Ziv 308445949 Noam 313527822\View\obj\Debug\C19 Ex01 Ziv 308445949 Noam 313527822.pdb
+C:\Users\ziv3r\Desktop\summer semester\desgin patterns\C19 Ex01 Ziv 308445949 Noam 313527822\View\bin\Debug\C19 Ex01 Ziv 308445949 Noam 313527822.pdb
+C:\Users\ziv3r\Desktop\summer semester\desgin patterns\C19 Ex01 Ziv 308445949 Noam 313527822\View\bin\Debug\Model.dll
+C:\Users\ziv3r\Desktop\summer semester\desgin patterns\C19 Ex01 Ziv 308445949 Noam 313527822\View\bin\Debug\Model.pdb
+C:\Users\ziv3r\Desktop\summer semester\desgin patterns\C19 Ex01 Ziv 308445949 Noam 313527822\View\obj\Debug\View.csproj.CopyComplete
+C:\Users\ziv3r\Desktop\summer semester\desgin patterns\C19 Ex01 Ziv 308445949 Noam 313527822\View\obj\Debug\C19 Ex01 Ziv 308445949 Noam 313527822.exe
+C:\Users\ziv3r\Desktop\summer semester\desgin patterns\C19 Ex01 Ziv 308445949 Noam 313527822\View\bin\Debug\C19 Ex01 Ziv 308445949 Noam 313527822.exe.config
+C:\Users\ziv3r\Desktop\summer semester\desgin patterns\C19 Ex01 Ziv 308445949 Noam 313527822\View\bin\Debug\C19 Ex01 Ziv 308445949 Noam 313527822.exe

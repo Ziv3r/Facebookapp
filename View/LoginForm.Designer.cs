@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.LoginBtn = new System.Windows.Forms.Button();
-            this.checkBoxRemmberMe = new System.Windows.Forms.CheckBox();
+            this.checkBoxRememberMe = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // LoginBtn
@@ -44,15 +44,15 @@
             this.LoginBtn.UseVisualStyleBackColor = false;
             this.LoginBtn.Click += new System.EventHandler(this.LoginBtn_Click);
             // 
-            // checkBoxRemmberMe
+            // checkBoxRememberMe
             // 
-            this.checkBoxRemmberMe.AutoSize = true;
-            this.checkBoxRemmberMe.Location = new System.Drawing.Point(395, 85);
-            this.checkBoxRemmberMe.Name = "checkBoxRemmberMe";
-            this.checkBoxRemmberMe.Size = new System.Drawing.Size(131, 24);
-            this.checkBoxRemmberMe.TabIndex = 11;
-            this.checkBoxRemmberMe.Text = "Remmber Me";
-            this.checkBoxRemmberMe.UseVisualStyleBackColor = true;
+            this.checkBoxRememberMe.AutoSize = true;
+            this.checkBoxRememberMe.Location = new System.Drawing.Point(395, 85);
+            this.checkBoxRememberMe.Name = "checkBoxRememberMe";
+            this.checkBoxRememberMe.Size = new System.Drawing.Size(131, 24);
+            this.checkBoxRememberMe.TabIndex = 11;
+            this.checkBoxRememberMe.Text = "Remmber Me";
+            this.checkBoxRememberMe.UseVisualStyleBackColor = true;
             // 
             // LoginForm
             // 
@@ -62,7 +62,7 @@
             this.BackgroundImage = global::C19_Ex01_Ziv_308445949_Noam_313527822.Properties.Resources.facebook_reactions_official2016_1920_800x450;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(946, 506);
-            this.Controls.Add(this.checkBoxRemmberMe);
+            this.Controls.Add(this.checkBoxRememberMe);
             this.Controls.Add(this.LoginBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -79,6 +79,6 @@
         #endregion
 
         private System.Windows.Forms.Button LoginBtn;
-        private System.Windows.Forms.CheckBox checkBoxRemmberMe;
+        private System.Windows.Forms.CheckBox checkBoxRememberMe;
     }
 }

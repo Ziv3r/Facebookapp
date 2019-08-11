@@ -1,38 +1,89 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FacebookWrapper;
+﻿using System.Collections.Generic;
 using FacebookWrapper.ObjectModel;
+using System.Linq;
+using System;
 
-namespace View
+namespace Model
 {
-    class Matcher
+    public class Matcher
     {
-        User m_FaceBookUser;
+        private int k_SameCity = 5;
+        private int k_AttendigToSameEvent = 4;
+        private int k_samePlaceCheckedIn = 3;
+
+        public User FaceBookUser { get; set; }
+
+        public int IndexInMatchCollection{ get; set; }
+
+        internal List<KeyValuePair<int, User>> m_FriendsMatch;
 
         public Matcher(User i_FaceBookUser)
         {
-            m_FaceBookUser = i_FaceBookUser;
+            FaceBookUser = i_FaceBookUser;
         }
 
-        public List<User> getMatch()
+        internal List<KeyValuePair<int, User>> GetMatch(User.eGender i_GenderOfInterest)
         {
-            List<User> userBestMatches = new List<User>();
+            ICollection<User> userBestMatches;
 
-            foreach (User userFrined in m_FaceBookUser.Friends)
+            // this line should be applied for better match, facebook API doesnt provide friends gender though.
+            // userBestMatches = FaceBookUser.Friends.Where(friend => friend.Gender == i_GenderOfInterest).ToList<User>();
+
+            userBestMatches = FaceBookUser.Friends;
+            //Delete it !!!! 
+            userBestMatches = FaceBookUser.Friends.Where(friend => friend.Name.Contains('v')).ToList<User>();
+
+            foreach (User friend in userBestMatches)
             {
                 int friendScore = 0;
-                if (!userFrined.Gender.Equals(m_FaceBookUser.Gender))
+
+                if (friend.Hometown != null &&
+                    friend.Hometown.Equals(FaceBookUser.Hometown))
                 {
-                    friendScore++;
+                    friendScore += k_SameCity;
                 }
 
+                friendScore += addToScore(friend.Events, FaceBookUser.Events, k_AttendigToSameEvent);
+                friendScore += addToScore(friend.Checkins, FaceBookUser.Checkins, k_samePlaceCheckedIn);
+                m_FriendsMatch.Add(new KeyValuePair<int,User>(friendScore, friend));
             }
 
-            return userBestMatches;
+            return m_FriendsMatch.OrderByDescending(x => x.Key).ToList();
+        }
+
+        private int addToScore<T>(ICollection<T> i_TargetElements, ICollection<T> i_Source, int i_ToAdd)
+        {
+            int addToScore = 0;
+            foreach (T element in i_TargetElements)
+            {
+                if (i_Source.Contains(element))
+                {
+                    addToScore += i_ToAdd;
+                }
+            }
+
+            return addToScore;
         }
     }
 }
 
+
+
+
+/*
+   foreach (Event currentEvent in friend.Events)
+                {
+                    if (FaceBookUser.Events.Contains(currentEvent))
+                    {
+                        friendScore += k_AttendigToSameEvent;
+                    }
+                }
+                
+                /*
+                foreach (Checkin checkIn in friend.Checkins)
+                {
+                    if (FaceBookUser.Checkins.Contains(checkIn))
+                    {
+                        friendScore += k_samePlaceCheckedId;
+                    }
+                }*/
