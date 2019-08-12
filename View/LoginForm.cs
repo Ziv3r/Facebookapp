@@ -17,10 +17,10 @@ namespace View
     {
         public event Action<User> OnLogin;
 
-        public LoginResult LoginResult { set; get; }
+        public LoginResult LoginResult { get; set; }
 
-        
-        private const string k_ApplicationId = "1450160541956417";     
+        private const string k_ApplicationId = "1450160541956417";
+
         private readonly string[] r_RequiredPermissions =
         {
              "public_profile",
@@ -63,7 +63,6 @@ namespace View
             }
         }
 
-       
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             FacebookApp.AppSettings.RememberUser = checkBoxRememberMe.Checked;
@@ -78,18 +77,15 @@ namespace View
             }
         }
 
-
         private void LoginBtn_Click(object sender, EventArgs e)
         {
-            //desig pass : design.patterns19c
             loginAndInit();
             Close();
         }
 
         private void loginAndInit()
         {
-            LoginResult = FacebookService.Login(k_ApplicationId,
-               r_RequiredPermissions);
+            LoginResult = FacebookService.Login(k_ApplicationId, r_RequiredPermissions);
 
             if (!string.IsNullOrEmpty(LoginResult.AccessToken))
             {
@@ -101,10 +97,8 @@ namespace View
             }
         }
 
-
         private void LoginForm_Load(object sender, EventArgs e)
         {
         }
     }
 }
-

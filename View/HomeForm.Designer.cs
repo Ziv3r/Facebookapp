@@ -17,6 +17,7 @@
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
@@ -30,7 +31,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HomeForm));
             this.tabControlGroups = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPageFriends = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.radioButtonFemale = new System.Windows.Forms.RadioButton();
             this.radioButtonMale = new System.Windows.Forms.RadioButton();
@@ -43,13 +44,13 @@
             this.pictureBoxFriend = new System.Windows.Forms.PictureBox();
             this.listBoxFriends = new System.Windows.Forms.ListBox();
             this.friendsBtn = new System.Windows.Forms.Button();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPageEvents = new System.Windows.Forms.TabPage();
             this.listBoxEvents = new System.Windows.Forms.ListBox();
             this.buttonShowEvents = new System.Windows.Forms.Button();
             this.tabPageGroups = new System.Windows.Forms.TabPage();
             this.listBoxGroups = new System.Windows.Forms.ListBox();
             this.buttonGetGroups = new System.Windows.Forms.Button();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tabPagePosts = new System.Windows.Forms.TabPage();
             this.listBoxPosts = new System.Windows.Forms.ListBox();
             this.buttonShowPosts = new System.Windows.Forms.Button();
             this.pictureBoxProfilePicture = new System.Windows.Forms.PictureBox();
@@ -69,24 +70,31 @@
             this.labelEventEnd = new System.Windows.Forms.Label();
             this.listBoxEventsByDate = new System.Windows.Forms.ListBox();
             this.buttonPickEventsByDate = new System.Windows.Forms.Button();
+            this.tabPageAlbums = new System.Windows.Forms.TabPage();
+            this.textBoxImageSearch = new System.Windows.Forms.TextBox();
+            this.labelImageSearch = new System.Windows.Forms.Label();
+            this.buttonSearchImage = new System.Windows.Forms.Button();
+            this.listViewImages = new System.Windows.Forms.ListView();
             this.tabControlGroups.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tabPageFriends.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTinder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFriend)).BeginInit();
-            this.tabPage2.SuspendLayout();
+            this.tabPageEvents.SuspendLayout();
             this.tabPageGroups.SuspendLayout();
-            this.tabPage4.SuspendLayout();
+            this.tabPagePosts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfilePicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCurrentEvent)).BeginInit();
+            this.tabPageAlbums.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControlGroups
             // 
-            this.tabControlGroups.Controls.Add(this.tabPage1);
-            this.tabControlGroups.Controls.Add(this.tabPage2);
+            this.tabControlGroups.Controls.Add(this.tabPageFriends);
+            this.tabControlGroups.Controls.Add(this.tabPageEvents);
             this.tabControlGroups.Controls.Add(this.tabPageGroups);
-            this.tabControlGroups.Controls.Add(this.tabPage4);
+            this.tabControlGroups.Controls.Add(this.tabPagePosts);
+            this.tabControlGroups.Controls.Add(this.tabPageAlbums);
             this.tabControlGroups.Location = new System.Drawing.Point(11, 167);
             this.tabControlGroups.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControlGroups.Name = "tabControlGroups";
@@ -94,28 +102,28 @@
             this.tabControlGroups.Size = new System.Drawing.Size(956, 324);
             this.tabControlGroups.TabIndex = 0;
             // 
-            // tabPage1
+            // tabPageFriends
             // 
-            this.tabPage1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabPage1.BackgroundImage")));
-            this.tabPage1.Controls.Add(this.groupBox2);
-            this.tabPage1.Controls.Add(this.labelGenderChoose);
-            this.tabPage1.Controls.Add(this.buttonTinderLeft);
-            this.tabPage1.Controls.Add(this.labelTinderName);
-            this.tabPage1.Controls.Add(this.buttonTinderRight);
-            this.tabPage1.Controls.Add(this.pictureBoxTinder);
-            this.tabPage1.Controls.Add(this.buttonFindLove);
-            this.tabPage1.Controls.Add(this.pictureBoxFriend);
-            this.tabPage1.Controls.Add(this.listBoxFriends);
-            this.tabPage1.Controls.Add(this.friendsBtn);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage1.Size = new System.Drawing.Size(948, 295);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Friends";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            this.tabPageFriends.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabPageFriends.BackgroundImage")));
+            this.tabPageFriends.Controls.Add(this.groupBox2);
+            this.tabPageFriends.Controls.Add(this.labelGenderChoose);
+            this.tabPageFriends.Controls.Add(this.buttonTinderLeft);
+            this.tabPageFriends.Controls.Add(this.labelTinderName);
+            this.tabPageFriends.Controls.Add(this.buttonTinderRight);
+            this.tabPageFriends.Controls.Add(this.pictureBoxTinder);
+            this.tabPageFriends.Controls.Add(this.buttonFindLove);
+            this.tabPageFriends.Controls.Add(this.pictureBoxFriend);
+            this.tabPageFriends.Controls.Add(this.listBoxFriends);
+            this.tabPageFriends.Controls.Add(this.friendsBtn);
+            this.tabPageFriends.Location = new System.Drawing.Point(4, 25);
+            this.tabPageFriends.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPageFriends.Name = "tabPageFriends";
+            this.tabPageFriends.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPageFriends.Size = new System.Drawing.Size(948, 295);
+            this.tabPageFriends.TabIndex = 0;
+            this.tabPageFriends.Text = "Friends";
+            this.tabPageFriends.UseVisualStyleBackColor = true;
+            this.tabPageFriends.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // groupBox2
             // 
@@ -251,27 +259,27 @@
             this.friendsBtn.UseVisualStyleBackColor = true;
             this.friendsBtn.Click += new System.EventHandler(this.showFriendsBtn_Click);
             // 
-            // tabPage2
+            // tabPageEvents
             // 
-            this.tabPage2.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.tabPage2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabPage2.BackgroundImage")));
-            this.tabPage2.Controls.Add(this.buttonPickEventsByDate);
-            this.tabPage2.Controls.Add(this.listBoxEventsByDate);
-            this.tabPage2.Controls.Add(this.labelEventEnd);
-            this.tabPage2.Controls.Add(this.labelEventStart);
-            this.tabPage2.Controls.Add(this.dateTimePickerEventEnd);
-            this.tabPage2.Controls.Add(this.dateTimePickerEventStart);
-            this.tabPage2.Controls.Add(this.textBoxEventDescription);
-            this.tabPage2.Controls.Add(this.pictureBoxCurrentEvent);
-            this.tabPage2.Controls.Add(this.listBoxEvents);
-            this.tabPage2.Controls.Add(this.buttonShowEvents);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Size = new System.Drawing.Size(948, 295);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Events";
+            this.tabPageEvents.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.tabPageEvents.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabPageEvents.BackgroundImage")));
+            this.tabPageEvents.Controls.Add(this.buttonPickEventsByDate);
+            this.tabPageEvents.Controls.Add(this.listBoxEventsByDate);
+            this.tabPageEvents.Controls.Add(this.labelEventEnd);
+            this.tabPageEvents.Controls.Add(this.labelEventStart);
+            this.tabPageEvents.Controls.Add(this.dateTimePickerEventEnd);
+            this.tabPageEvents.Controls.Add(this.dateTimePickerEventStart);
+            this.tabPageEvents.Controls.Add(this.textBoxEventDescription);
+            this.tabPageEvents.Controls.Add(this.pictureBoxCurrentEvent);
+            this.tabPageEvents.Controls.Add(this.listBoxEvents);
+            this.tabPageEvents.Controls.Add(this.buttonShowEvents);
+            this.tabPageEvents.Location = new System.Drawing.Point(4, 25);
+            this.tabPageEvents.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPageEvents.Name = "tabPageEvents";
+            this.tabPageEvents.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPageEvents.Size = new System.Drawing.Size(948, 295);
+            this.tabPageEvents.TabIndex = 1;
+            this.tabPageEvents.Text = "Events";
             // 
             // listBoxEvents
             // 
@@ -329,18 +337,18 @@
             this.buttonGetGroups.UseVisualStyleBackColor = true;
             this.buttonGetGroups.Click += new System.EventHandler(this.buttonGetFriends_Click);
             // 
-            // tabPage4
+            // tabPagePosts
             // 
-            this.tabPage4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabPage4.BackgroundImage")));
-            this.tabPage4.Controls.Add(this.listBoxPosts);
-            this.tabPage4.Controls.Add(this.buttonShowPosts);
-            this.tabPage4.Location = new System.Drawing.Point(4, 25);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(948, 295);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Posts";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.tabPagePosts.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabPagePosts.BackgroundImage")));
+            this.tabPagePosts.Controls.Add(this.listBoxPosts);
+            this.tabPagePosts.Controls.Add(this.buttonShowPosts);
+            this.tabPagePosts.Location = new System.Drawing.Point(4, 25);
+            this.tabPagePosts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPagePosts.Name = "tabPagePosts";
+            this.tabPagePosts.Size = new System.Drawing.Size(948, 295);
+            this.tabPagePosts.TabIndex = 3;
+            this.tabPagePosts.Text = "Posts";
+            this.tabPagePosts.UseVisualStyleBackColor = true;
             // 
             // listBoxPosts
             // 
@@ -526,6 +534,59 @@
             this.buttonPickEventsByDate.UseVisualStyleBackColor = true;
             this.buttonPickEventsByDate.Click += new System.EventHandler(this.buttonPickEventsByDate_Click);
             // 
+            // tabPageAlbums
+            // 
+            this.tabPageAlbums.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tabPageAlbums.BackgroundImage")));
+            this.tabPageAlbums.Controls.Add(this.listViewImages);
+            this.tabPageAlbums.Controls.Add(this.buttonSearchImage);
+            this.tabPageAlbums.Controls.Add(this.labelImageSearch);
+            this.tabPageAlbums.Controls.Add(this.textBoxImageSearch);
+            this.tabPageAlbums.Location = new System.Drawing.Point(4, 25);
+            this.tabPageAlbums.Name = "tabPageAlbums";
+            this.tabPageAlbums.Size = new System.Drawing.Size(948, 295);
+            this.tabPageAlbums.TabIndex = 4;
+            this.tabPageAlbums.Text = "Albums";
+            this.tabPageAlbums.UseVisualStyleBackColor = true;
+            this.tabPageAlbums.Click += new System.EventHandler(this.tabPageAlbums_Click);
+            // 
+            // textBoxImageSearch
+            // 
+            this.textBoxImageSearch.Location = new System.Drawing.Point(57, 33);
+            this.textBoxImageSearch.Name = "textBoxImageSearch";
+            this.textBoxImageSearch.Size = new System.Drawing.Size(100, 22);
+            this.textBoxImageSearch.TabIndex = 0;
+            this.textBoxImageSearch.Tag = string.Empty;
+            this.textBoxImageSearch.TextChanged += new System.EventHandler(this.textBoxImageSearch_TextChanged);
+            // 
+            // labelImageSearch
+            // 
+            this.labelImageSearch.AutoSize = true;
+            this.labelImageSearch.Location = new System.Drawing.Point(14, 29);
+            this.labelImageSearch.Name = "labelImageSearch";
+            this.labelImageSearch.Size = new System.Drawing.Size(37, 17);
+            this.labelImageSearch.TabIndex = 1;
+            this.labelImageSearch.Text = "Tag:";
+            // 
+            // buttonSearchImage
+            // 
+            this.buttonSearchImage.Location = new System.Drawing.Point(175, 33);
+            this.buttonSearchImage.Name = "buttonSearchImage";
+            this.buttonSearchImage.Size = new System.Drawing.Size(65, 22);
+            this.buttonSearchImage.TabIndex = 2;
+            this.buttonSearchImage.Text = "Search";
+            this.buttonSearchImage.UseVisualStyleBackColor = true;
+            this.buttonSearchImage.Click += new System.EventHandler(this.buttonSearchImage_Click);
+            // 
+            // listViewImages
+            // 
+            this.listViewImages.BackColor = System.Drawing.SystemColors.Window;
+            this.listViewImages.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("listViewImages.BackgroundImage")));
+            this.listViewImages.Location = new System.Drawing.Point(275, 21);
+            this.listViewImages.Name = "listViewImages";
+            this.listViewImages.Size = new System.Drawing.Size(661, 255);
+            this.listViewImages.TabIndex = 3;
+            this.listViewImages.UseCompatibleStateImageBehavior = false;
+            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -547,18 +608,20 @@
             this.Text = "HomeForm";
             this.Load += new System.EventHandler(this.HomeForm_Load);
             this.tabControlGroups.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.tabPageFriends.ResumeLayout(false);
+            this.tabPageFriends.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTinder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFriend)).EndInit();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.tabPageEvents.ResumeLayout(false);
+            this.tabPageEvents.PerformLayout();
             this.tabPageGroups.ResumeLayout(false);
-            this.tabPage4.ResumeLayout(false);
+            this.tabPagePosts.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfilePicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCurrentEvent)).EndInit();
+            this.tabPageAlbums.ResumeLayout(false);
+            this.tabPageAlbums.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -567,8 +630,8 @@
         #endregion
 
         private System.Windows.Forms.TabControl tabControlGroups;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPageFriends;
+        private System.Windows.Forms.TabPage tabPageEvents;
         private System.Windows.Forms.PictureBox pictureBoxFriend;
         private System.Windows.Forms.ListBox listBoxFriends;
         private System.Windows.Forms.Button friendsBtn;
@@ -584,7 +647,7 @@
         private System.Windows.Forms.Label labelPostStatus;
         private System.Windows.Forms.TextBox textBoxPost;
         private System.Windows.Forms.Button buttonPost;
-        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TabPage tabPagePosts;
         private System.Windows.Forms.ListBox listBoxPosts;
         private System.Windows.Forms.Button buttonShowPosts;
         private System.Windows.Forms.ListBox listBoxEvents;
@@ -606,5 +669,10 @@
         private System.Windows.Forms.PictureBox pictureBoxCurrentEvent;
         private System.Windows.Forms.ListBox listBoxEventsByDate;
         private System.Windows.Forms.Button buttonPickEventsByDate;
+        private System.Windows.Forms.TabPage tabPageAlbums;
+        private System.Windows.Forms.Label labelImageSearch;
+        private System.Windows.Forms.TextBox textBoxImageSearch;
+        private System.Windows.Forms.Button buttonSearchImage;
+        private System.Windows.Forms.ListView listViewImages;
     }
 }

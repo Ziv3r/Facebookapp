@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlbumsFeature.cs" />
     <Compile Include="AppSettings.cs" />
     <Compile Include="EventsFeature.cs" />
     <Compile Include="FacebookApp.cs" />

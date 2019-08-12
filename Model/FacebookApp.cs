@@ -1,20 +1,26 @@
-﻿using FacebookWrapper.ObjectModel;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using FacebookWrapper.ObjectModel;
 
 namespace Model
 {
     public class FacebookApp
     {
         public static AppSettings AppSettings { get; private set; }
+
         public User FacebookUser { get; set; }
+
         public Matcher Matcher { get; private set; }
+
         public EventsFeature EventFeature { get; private set; }
+
+        public AlbumsFeature AlbumsFeature { get; private set; }
 
         public FacebookApp()
         {
             EventFeature = new EventsFeature();
+            AlbumsFeature = new AlbumsFeature();
             AppSettings = AppSettings.LoadFromFile();
         }
 
@@ -26,14 +32,13 @@ namespace Model
                 throw new ArgumentException("find love feature already initiated");
             }
 
-        
             Matcher.FriendsMatch = new List<KeyValuePair<int, User>>();
             Matcher.FriendsMatch = Matcher.GetMatch(i_GenderOfInterest);
             Matcher.IndexInMatchCollection = -1; // for first increament
 
             if (Matcher.FriendsMatch.Count == 0)
             {
-                throw new NotSupportedException("feature doesnt suppoert empty friend list");
+                throw new NotSupportedException("feature doesnt support empty friend list");
             }
 
             return GetMatch("right");
@@ -41,7 +46,12 @@ namespace Model
 
         public List<Event> GetEventsByDate(DateTime i_Start, DateTime i_EndTime)
         {
-            return EventFeature.GetEventsByDate(FacebookUser,i_Start,i_EndTime);
+            return EventFeature.GetEventsByDate(FacebookUser, i_Start, i_EndTime);
+        }
+
+        public List<string> GetImagesByTag(string i_Tag)
+        {
+            return AlbumsFeature.GetImagesByTag(i_Tag, FacebookUser);
         }
 
         public KeyValuePair<int, User> GetMatch(string i_NextElement)

@@ -1,30 +1,44 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using FacebookWrapper.ObjectModel;
+using System.Drawing;
 using Model;
+using FacebookWrapper.ObjectModel;
 
 namespace View
 {
     public delegate KeyValuePair<int, User> OnFindLove(User.eGender i_GenderOfInterest);
+
     public delegate KeyValuePair<int, User> OnTinderSlide(string i_Side);
+
     public delegate List<Event> OnPickEvent(DateTime i_Start, DateTime i_EndTime);
 
+    public delegate List<string> OnSearchImage(string i_Tag);
 
     public partial class HomeForm : Form
     {
         public event OnFindLove OnFindLove;
+
         public event OnTinderSlide OnTinderSlide;
+
         public event OnPickEvent OnPickEventsByDate;
 
-        User FaceBookUser { set; get; }
+        public event OnSearchImage TextBox_OnImageSearch;
 
-        public HomeForm(User i_FaceBookUser, OnFindLove i_OnFindLove, OnTinderSlide i_TinderSlide, OnPickEvent i_OnPickEventsByDate)
+        public User FaceBookUser { get; set; }
+
+        public HomeForm(
+            User i_FaceBookUser,
+            OnFindLove i_OnFindLove,
+            OnTinderSlide i_TinderSlide,
+            OnPickEvent i_OnPickEventsByDate,
+            OnSearchImage i_OnSearchImages)
         {
             FaceBookUser = i_FaceBookUser;
             OnFindLove += i_OnFindLove;
             OnTinderSlide += i_TinderSlide;
             OnPickEventsByDate += i_OnPickEventsByDate;
+            TextBox_OnImageSearch += i_OnSearchImages;
 
             FacebookWrapper.FacebookService.s_CollectionLimit = 200;
             FacebookWrapper.FacebookService.s_FbApiVersion = 2.8f;
@@ -49,7 +63,6 @@ namespace View
 
         private void HomeForm_Load(object sender, EventArgs e)
         {
-
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -60,9 +73,7 @@ namespace View
             appSettings.LastWindowsSize = this.Size;
             appSettings.LastWindowLocation = this.Location;
             appSettings.LastFormStartPosition = FormStartPosition.Manual;
-
         }
-
 
         private void showFriendsBtn_Click(object sender, EventArgs e)
         {
@@ -76,7 +87,6 @@ namespace View
 
             foreach (User friend in FaceBookUser.Friends)
             {
-
                 listBoxFriends.Items.Add(friend);
 
                 if (FaceBookUser.Friends.Count == 0)
@@ -133,13 +143,12 @@ namespace View
             try
             {
                 Status postedStatus = FaceBookUser.PostStatus(textBoxPost.Text);
-                textBoxPost.Text = "";
+                textBoxPost.Text = string.Empty;
                 MessageBox.Show("Status Posted!");
             }
             catch
             {
                 MessageBox.Show("not Posted!");
-
             }
         }
 
@@ -166,12 +175,10 @@ namespace View
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void buttonTip_Click(object sender, EventArgs e)
         {
-
         }
 
         private void buttonFindLove_Click(object sender, EventArgs e)
@@ -193,18 +200,18 @@ namespace View
             }
         }
 
-        private void layOutTinderDetails(KeyValuePair<int, User> loveMatch)
+        private void layOutTinderDetails(KeyValuePair<int, User> i_LoveMatch)
         {
-            pictureBoxTinder.LoadAsync(loveMatch.Value.PictureNormalURL);
-            labelTinderName.Text = loveMatch.Key.ToString() + " " + loveMatch.Value.Name;
+            pictureBoxTinder.LoadAsync(i_LoveMatch.Value.PictureNormalURL);
+            labelTinderName.Text = i_LoveMatch.Key.ToString() + " " + i_LoveMatch.Value.Name;
             buttonTinderLeft.Visible = buttonTinderRight.Visible = true;
             buttonFindLove.Enabled = false;
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
         {
-
         }
+
         private void buttonTinderLeft_Click(object sender, EventArgs e)
         {
             KeyValuePair<int, User> loveMatch = OnTinderSlide("left");
@@ -213,13 +220,13 @@ namespace View
 
         private void textBoxPost_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void buttonShowEvents_Click(object sender, EventArgs e)
         {
             fetchEvents();
         }
+
         private void fetchEvents()
         {
             if (FaceBookUser.Events.Count == 0)
@@ -236,8 +243,8 @@ namespace View
                     }
                 }
             }
-
         }
+
         private void buttonTinderRight_Click(object sender, EventArgs e)
         {
             KeyValuePair<int, User> loveMatch = OnTinderSlide("right");
@@ -246,9 +253,7 @@ namespace View
 
         private void listBoxEvents_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             displaySelectedEvent();
-
         }
 
         private void displaySelectedEvent()
@@ -268,34 +273,27 @@ namespace View
 
                 textBoxEventDescription.Enabled = true;
                 textBoxEventDescription.Text = selectedEvent.Description;
-
             }
         }
 
-
         private void pictureBoxTinder_Click(object sender, EventArgs e)
         {
-
         }
 
         private void labelGenderChoose_Click(object sender, EventArgs e)
         {
-
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
         {
-
         }
 
         private void label2_Click(object sender, EventArgs e)
         {
-
         }
 
         private void dateTimePickerEventEnd_ValueChanged(object sender, EventArgs e)
@@ -313,6 +311,43 @@ namespace View
                 OnPickEventsByDate(dateTimePickerEventStart.Value, dateTimePickerEventEnd.Value)
                     .ForEach((i_Event) => listBoxEventsByDate.Items.Add(i_Event.Name));
             }
+        }
+
+        private void textBoxImageSearch_TextChanged(object sender, EventArgs e)
+        {
+        }
+
+        private Image LoadImage(string i_URL)
+        {
+            System.Net.WebRequest request = System.Net.WebRequest.Create(i_URL);
+
+            System.Net.WebResponse response = request.GetResponse();
+            System.IO.Stream responseStream = response.GetResponseStream();
+
+            Bitmap bmp = new Bitmap(responseStream);
+
+            responseStream.Dispose();
+
+            return bmp;
+        }
+
+        private void buttonSearchImage_Click(object sender, EventArgs e)
+        {
+            ImageList imageList = new ImageList();
+            TextBox_OnImageSearch(textBoxImageSearch.Text).ForEach(url => imageList.Images.Add(LoadImage(url)));
+
+            // listViewImages.View = View.LargeIcon;
+            listViewImages.SmallImageList = imageList;
+
+            for (int i = 0; i < imageList.Images.Count; i++)
+            {
+                ListViewItem lvi = new ListViewItem("koala " + i.ToString(), i);
+                listViewImages.Items.Add(lvi);
+            }
+        }
+
+        private void tabPageAlbums_Click(object sender, EventArgs e)
+        {
         }
     }
 }

@@ -3,7 +3,6 @@ using System.Xml.Serialization;
 using System.Drawing;
 using System.Windows.Forms;
 
-
 namespace Model
 {
     public class AppSettings
@@ -22,7 +21,6 @@ namespace Model
         public bool RememberUser { get; set; }
 
         public string LastAccessToken { get; set; }
-
 
         private AppSettings()
         { 

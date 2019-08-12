@@ -1,21 +1,21 @@
-﻿using System.Collections.Generic;
-using FacebookWrapper.ObjectModel;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using System;
+using FacebookWrapper.ObjectModel;
 
 namespace Model
 {
     public class Matcher
     {
-        private int k_SameCity = 5;
-        private int k_AttendigToSameEvent = 4;
-        private int k_samePlaceCheckedIn = 3;
+        private const int k_SameCity = 5;
+        private const int k_AttendigToSameEvent = 4;
+        private const int k_samePlaceCheckedIn = 3;
 
         public User FaceBookUser { get; set; }
 
-        public int IndexInMatchCollection{ get; set; }
+        public int IndexInMatchCollection { get; set; }
 
-        internal List<KeyValuePair<int, User>> FriendsMatch { set; get; }
+        internal List<KeyValuePair<int, User>> FriendsMatch { get; set; }
 
         public Matcher(User i_FaceBookUser)
         {
@@ -43,7 +43,7 @@ namespace Model
 
                 friendScore += addToScore(friend.Events, FaceBookUser.Events, k_AttendigToSameEvent);
                 friendScore += addToScore(friend.Checkins, FaceBookUser.Checkins, k_samePlaceCheckedIn);
-                FriendsMatch.Add(new KeyValuePair<int,User>(friendScore, friend));
+                FriendsMatch.Add(new KeyValuePair<int, User>(friendScore, friend));
             }
 
             return FriendsMatch.OrderByDescending(x => x.Key).ToList();
@@ -64,9 +64,6 @@ namespace Model
         }
     }
 }
-
-
-
 
 /*
    foreach (Event currentEvent in friend.Events)

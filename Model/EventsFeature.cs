@@ -8,7 +8,7 @@ namespace Model
 {
     public class EventsFeature
     {
-        public List<Event> EventsMatch { set; get; }
+        public List<Event> EventsMatch { get; set; }
 
         public EventsFeature()
         {
