@@ -18,15 +18,21 @@ namespace Model
 
         public KeyValuePair<int, User> InitFindLove(User.eGender i_GenderOfInterest)
         {
-            if (Matcher.m_FriendsMatch != null)
+            Matcher = new Matcher(FacebookUser);
+            if (Matcher.FriendsMatch != null)
             {
                 throw new ArgumentException("find love feature already initiated");
             }
 
-            Matcher = new Matcher(FacebookUser);
-            Matcher.m_FriendsMatch = new List<KeyValuePair<int, User>>();
-            Matcher.m_FriendsMatch = Matcher.GetMatch(i_GenderOfInterest);
+        
+            Matcher.FriendsMatch = new List<KeyValuePair<int, User>>();
+            Matcher.FriendsMatch = Matcher.GetMatch(i_GenderOfInterest);
             Matcher.IndexInMatchCollection = -1; // for first increament
+
+            if (Matcher.FriendsMatch.Count == 0)
+            {
+                throw new NotSupportedException("feature doesnt suppoert empty friend list");
+            }
 
             return GetMatch("right");
         }
@@ -40,12 +46,9 @@ namespace Model
 
             int nextIndexHelper = i_NextElement == "left" ? -1 : 1;
             Matcher.IndexInMatchCollection =
-                    (Matcher.IndexInMatchCollection + nextIndexHelper + Matcher.m_FriendsMatch.Count) % Matcher.m_FriendsMatch.Count;
+                    (Matcher.IndexInMatchCollection + nextIndexHelper + Matcher.FriendsMatch.Count) % Matcher.FriendsMatch.Count;
 
-            return Matcher.m_FriendsMatch[Matcher.IndexInMatchCollection];
+            return Matcher.FriendsMatch[Matcher.IndexInMatchCollection];
         }
-
-
-
     }
 }

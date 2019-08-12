@@ -15,7 +15,7 @@ namespace Model
 
         public int IndexInMatchCollection{ get; set; }
 
-        internal List<KeyValuePair<int, User>> m_FriendsMatch;
+        internal List<KeyValuePair<int, User>> FriendsMatch { set; get; }
 
         public Matcher(User i_FaceBookUser)
         {
@@ -30,8 +30,6 @@ namespace Model
             // userBestMatches = FaceBookUser.Friends.Where(friend => friend.Gender == i_GenderOfInterest).ToList<User>();
 
             userBestMatches = FaceBookUser.Friends;
-            //Delete it !!!! 
-            userBestMatches = FaceBookUser.Friends.Where(friend => friend.Name.Contains('v')).ToList<User>();
 
             foreach (User friend in userBestMatches)
             {
@@ -45,10 +43,10 @@ namespace Model
 
                 friendScore += addToScore(friend.Events, FaceBookUser.Events, k_AttendigToSameEvent);
                 friendScore += addToScore(friend.Checkins, FaceBookUser.Checkins, k_samePlaceCheckedIn);
-                m_FriendsMatch.Add(new KeyValuePair<int,User>(friendScore, friend));
+                FriendsMatch.Add(new KeyValuePair<int,User>(friendScore, friend));
             }
 
-            return m_FriendsMatch.OrderByDescending(x => x.Key).ToList();
+            return FriendsMatch.OrderByDescending(x => x.Key).ToList();
         }
 
         private int addToScore<T>(ICollection<T> i_TargetElements, ICollection<T> i_Source, int i_ToAdd)

@@ -73,11 +73,9 @@ namespace View
 
             foreach (User friend in FaceBookUser.Friends)
             {
-                foreach (User userFriend in FaceBookUser.Friends)
-                {
-                    listBoxFriends.Items.Add(userFriend.Name.ToString());
-                    friend.ReFetch(DynamicWrapper.eLoadOptions.Full);
-                }
+
+                listBoxFriends.Items.Add(friend);
+                friend.ReFetch(DynamicWrapper.eLoadOptions.Full);
 
                 if (FaceBookUser.Friends.Count == 0)
                 {
@@ -171,16 +169,17 @@ namespace View
             KeyValuePair<int, User> loveMatch;
             if (radioButtonFemale.Checked || radioButtonMale.Checked)
             {
-                if (radioButtonMale.Checked)
+                try
                 {
-                     loveMatch = OnFindLove(User.eGender.male);
+                    loveMatch = radioButtonMale.Checked ?
+                        OnFindLove(User.eGender.male) : OnFindLove(User.eGender.female);
+                    layOutTinderDetails(loveMatch);
                 }
-                else
+                catch
                 {
-                    loveMatch = OnFindLove(User.eGender.female);
+                    buttonFindLove.Enabled = false;
+                    MessageBox.Show("Cannot find love with no friends...");
                 }
-                
-                layOutTinderDetails(loveMatch);
             }
         }
 
@@ -194,7 +193,7 @@ namespace View
 
         private void tabPage1_Click(object sender, EventArgs e)
         {
-           
+
         }
         private void buttonTinderLeft_Click(object sender, EventArgs e)
         {

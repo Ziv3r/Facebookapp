@@ -12,3 +12,17 @@ C:\Users\ziv3r\Desktop\summer semester\desgin patterns\C19 Ex01 Ziv 308445949 No
 C:\Users\ziv3r\Desktop\summer semester\desgin patterns\C19 Ex01 Ziv 308445949 Noam 313527822\View\obj\Debug\C19 Ex01 Ziv 308445949 Noam 313527822.exe
 C:\Users\ziv3r\Desktop\summer semester\desgin patterns\C19 Ex01 Ziv 308445949 Noam 313527822\View\bin\Debug\C19 Ex01 Ziv 308445949 Noam 313527822.exe.config
 C:\Users\ziv3r\Desktop\summer semester\desgin patterns\C19 Ex01 Ziv 308445949 Noam 313527822\View\bin\Debug\C19 Ex01 Ziv 308445949 Noam 313527822.exe
+C:\Users\noamlevy\Desktop\מכללה\שנה ב\סימסטר קיץ\DP\facebook project\Facebookapp\View\bin\Debug\C19 Ex01 Ziv 308445949 Noam 313527822.exe.config
+C:\Users\noamlevy\Desktop\מכללה\שנה ב\סימסטר קיץ\DP\facebook project\Facebookapp\View\bin\Debug\C19 Ex01 Ziv 308445949 Noam 313527822.exe
+C:\Users\noamlevy\Desktop\מכללה\שנה ב\סימסטר קיץ\DP\facebook project\Facebookapp\View\bin\Debug\C19 Ex01 Ziv 308445949 Noam 313527822.pdb
+C:\Users\noamlevy\Desktop\מכללה\שנה ב\סימסטר קיץ\DP\facebook project\Facebookapp\View\bin\Debug\Model.dll
+C:\Users\noamlevy\Desktop\מכללה\שנה ב\סימסטר קיץ\DP\facebook project\Facebookapp\View\bin\Debug\Model.pdb
+C:\Users\noamlevy\Desktop\מכללה\שנה ב\סימסטר קיץ\DP\facebook project\Facebookapp\View\obj\Debug\View.csprojAssemblyReference.cache
+C:\Users\noamlevy\Desktop\מכללה\שנה ב\סימסטר קיץ\DP\facebook project\Facebookapp\View\obj\Debug\View.HomeForm.resources
+C:\Users\noamlevy\Desktop\מכללה\שנה ב\סימסטר קיץ\DP\facebook project\Facebookapp\View\obj\Debug\View.LoginForm.resources
+C:\Users\noamlevy\Desktop\מכללה\שנה ב\סימסטר קיץ\DP\facebook project\Facebookapp\View\obj\Debug\C19_Ex01_Ziv_308445949_Noam_313527822.Properties.Resources.resources
+C:\Users\noamlevy\Desktop\מכללה\שנה ב\סימסטר קיץ\DP\facebook project\Facebookapp\View\obj\Debug\View.csproj.GenerateResource.cache
+C:\Users\noamlevy\Desktop\מכללה\שנה ב\סימסטר קיץ\DP\facebook project\Facebookapp\View\obj\Debug\View.csproj.CoreCompileInputs.cache
+C:\Users\noamlevy\Desktop\מכללה\שנה ב\סימסטר קיץ\DP\facebook project\Facebookapp\View\obj\Debug\View.csproj.CopyComplete
+C:\Users\noamlevy\Desktop\מכללה\שנה ב\סימסטר קיץ\DP\facebook project\Facebookapp\View\obj\Debug\C19 Ex01 Ziv 308445949 Noam 313527822.exe
+C:\Users\noamlevy\Desktop\מכללה\שנה ב\סימסטר קיץ\DP\facebook project\Facebookapp\View\obj\Debug\C19 Ex01 Ziv 308445949 Noam 313527822.pdb
