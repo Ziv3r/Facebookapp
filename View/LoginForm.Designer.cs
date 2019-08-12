@@ -36,9 +36,10 @@
             // 
             this.LoginBtn.BackColor = System.Drawing.SystemColors.Window;
             this.LoginBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.LoginBtn.Location = new System.Drawing.Point(384, 24);
+            this.LoginBtn.Location = new System.Drawing.Point(341, 19);
+            this.LoginBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LoginBtn.Name = "LoginBtn";
-            this.LoginBtn.Size = new System.Drawing.Size(163, 53);
+            this.LoginBtn.Size = new System.Drawing.Size(145, 42);
             this.LoginBtn.TabIndex = 0;
             this.LoginBtn.Text = "Login";
             this.LoginBtn.UseVisualStyleBackColor = false;
@@ -47,24 +48,26 @@
             // checkBoxRememberMe
             // 
             this.checkBoxRememberMe.AutoSize = true;
-            this.checkBoxRememberMe.Location = new System.Drawing.Point(395, 85);
+            this.checkBoxRememberMe.Location = new System.Drawing.Point(351, 68);
+            this.checkBoxRememberMe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxRememberMe.Name = "checkBoxRememberMe";
-            this.checkBoxRememberMe.Size = new System.Drawing.Size(131, 24);
+            this.checkBoxRememberMe.Size = new System.Drawing.Size(122, 21);
             this.checkBoxRememberMe.TabIndex = 11;
-            this.checkBoxRememberMe.Text = "Remmber Me";
+            this.checkBoxRememberMe.Text = "Remember Me";
             this.checkBoxRememberMe.UseVisualStyleBackColor = true;
             // 
             // LoginForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackgroundImage = global::C19_Ex01_Ziv_308445949_Noam_313527822.Properties.Resources.facebook_reactions_official2016_1920_800x450;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(946, 506);
+            this.ClientSize = new System.Drawing.Size(841, 405);
             this.Controls.Add(this.checkBoxRememberMe);
             this.Controls.Add(this.LoginBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "LoginForm";
             this.ShowInTaskbar = false;

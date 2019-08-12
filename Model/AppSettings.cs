@@ -9,8 +9,8 @@ namespace Model
     public class AppSettings
     {
         private const string k_SettingsFilePath = "..\\AppSettings.xml";
-        public const int k_DefaultHomeFormWidth = 1200;
-        public const int k_DefaultHomeFormHeight = 800;
+        public const int k_DefaultHomeFormWidth = 791;
+        public const int k_DefaultHomeFormHeight = 457;
         private static readonly Size sr_DefaultFormSize = new Size(k_DefaultHomeFormWidth, k_DefaultHomeFormHeight);
 
         public Point LastWindowLocation { get; set; }
@@ -62,7 +62,7 @@ namespace Model
                 File.Create(k_SettingsFilePath).Close();
             }
 
-            using (Stream stream = new FileStream(k_SettingsFilePath, FileMode.Truncate))
+            using (Stream stream = new FileStream(k_SettingsFilePath, FileMode.Create))
             {
                 XmlSerializer serializer = new XmlSerializer(this.GetType());
 

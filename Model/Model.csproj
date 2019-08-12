@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AppSettings.cs" />
+    <Compile Include="EventsFeature.cs" />
     <Compile Include="FacebookApp.cs" />
     <Compile Include="Matcher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -7,21 +7,24 @@ using Model;
 namespace View
 {
     public delegate KeyValuePair<int, User> OnFindLove(User.eGender i_GenderOfInterest);
-    public delegate KeyValuePair<int, User> OnTinderSlide(String i_Side);
+    public delegate KeyValuePair<int, User> OnTinderSlide(string i_Side);
+    public delegate List<Event> OnPickEvent(DateTime i_Start, DateTime i_EndTime);
 
 
     public partial class HomeForm : Form
     {
         public event OnFindLove OnFindLove;
         public event OnTinderSlide OnTinderSlide;
+        public event OnPickEvent OnPickEventsByDate;
 
         User FaceBookUser { set; get; }
 
-        public HomeForm(User i_FaceBookUser, OnFindLove i_OnFindLove, OnTinderSlide i_TinderSlide)
+        public HomeForm(User i_FaceBookUser, OnFindLove i_OnFindLove, OnTinderSlide i_TinderSlide, OnPickEvent i_OnPickEventsByDate)
         {
             FaceBookUser = i_FaceBookUser;
             OnFindLove += i_OnFindLove;
             OnTinderSlide += i_TinderSlide;
+            OnPickEventsByDate += i_OnPickEventsByDate;
 
             FacebookWrapper.FacebookService.s_CollectionLimit = 200;
             FacebookWrapper.FacebookService.s_FbApiVersion = 2.8f;
@@ -75,7 +78,6 @@ namespace View
             {
 
                 listBoxFriends.Items.Add(friend);
-                friend.ReFetch(DynamicWrapper.eLoadOptions.Full);
 
                 if (FaceBookUser.Friends.Count == 0)
                 {
@@ -107,10 +109,10 @@ namespace View
 
         private void buttonGetFriends_Click(object sender, EventArgs e)
         {
-            fetuchGropus();
+            fetchGropus();
         }
 
-        private void fetuchGropus()
+        private void fetchGropus()
         {
             listBoxGroups.Items.Clear();
             listBoxGroups.DisplayMember = "Name";
@@ -128,9 +130,17 @@ namespace View
 
         private void buttonPost_Click(object sender, EventArgs e)
         {
-            Status postedStatus = FaceBookUser.PostStatus(textBoxPost.Text);
-            textBoxPost.Text = "";
-            MessageBox.Show("Status Posted!");
+            try
+            {
+                Status postedStatus = FaceBookUser.PostStatus(textBoxPost.Text);
+                textBoxPost.Text = "";
+                MessageBox.Show("Status Posted!");
+            }
+            catch
+            {
+                MessageBox.Show("not Posted!");
+
+            }
         }
 
         private void buttonShowPosts_Click(object sender, EventArgs e)
@@ -212,19 +222,56 @@ namespace View
         }
         private void fetchEvents()
         {
-            foreach (Event currentEvent in FaceBookUser.Events)
-            {
-                if (currentEvent.Description != null)
-                {
-                    listBoxPosts.Items.Add(currentEvent.Description);
-                }
-            }
-
-            if (FaceBookUser.Posts.Count == 0)
+            if (FaceBookUser.Events.Count == 0)
             {
                 MessageBox.Show("No Events to retrieve :(");
             }
+            else
+            {
+                foreach (Event currentEvent in FaceBookUser.Events)
+                {
+                    if (currentEvent.Description != null)
+                    {
+                        listBoxPosts.Items.Add(currentEvent.Description);
+                    }
+                }
+            }
+
         }
+        private void buttonTinderRight_Click(object sender, EventArgs e)
+        {
+            KeyValuePair<int, User> loveMatch = OnTinderSlide("right");
+            layOutTinderDetails(loveMatch);
+        }
+
+        private void listBoxEvents_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            displaySelectedEvent();
+
+        }
+
+        private void displaySelectedEvent()
+        {
+            if (listBoxEvents.SelectedItems.Count == 1)
+            {
+                Event selectedEvent = listBoxEvents.SelectedItem as Event;
+
+                if (selectedEvent.PictureNormalURL != null)
+                {
+                    pictureBoxCurrentEvent.LoadAsync(selectedEvent.PictureNormalURL);
+                }
+                else
+                {
+                    pictureBoxCurrentEvent.Image = null;
+                }
+
+                textBoxEventDescription.Enabled = true;
+                textBoxEventDescription.Text = selectedEvent.Description;
+
+            }
+        }
+
 
         private void pictureBoxTinder_Click(object sender, EventArgs e)
         {
@@ -246,10 +293,26 @@ namespace View
 
         }
 
-        private void buttonTinderRight_Click(object sender, EventArgs e)
+        private void label2_Click(object sender, EventArgs e)
         {
-            KeyValuePair<int, User> loveMatch = OnTinderSlide("right");
-            layOutTinderDetails(loveMatch);
+
+        }
+
+        private void dateTimePickerEventEnd_ValueChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void buttonPickEventsByDate_Click(object sender, EventArgs e)
+        {
+            if (dateTimePickerEventEnd.Value < dateTimePickerEventStart.Value)
+            {
+                MessageBox.Show("Starting date must be less or equal to ending date");
+            }
+            else
+            {
+                OnPickEventsByDate(dateTimePickerEventStart.Value, dateTimePickerEventEnd.Value)
+                    .ForEach((i_Event) => listBoxEventsByDate.Items.Add(i_Event.Name));
+            }
         }
     }
 }

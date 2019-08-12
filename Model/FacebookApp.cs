@@ -10,9 +10,11 @@ namespace Model
         public static AppSettings AppSettings { get; private set; }
         public User FacebookUser { get; set; }
         public Matcher Matcher { get; private set; }
+        public EventsFeature EventFeature { get; private set; }
 
         public FacebookApp()
         {
+            EventFeature = new EventsFeature();
             AppSettings = AppSettings.LoadFromFile();
         }
 
@@ -35,6 +37,11 @@ namespace Model
             }
 
             return GetMatch("right");
+        }
+
+        public List<Event> GetEventsByDate(DateTime i_Start, DateTime i_EndTime)
+        {
+            return EventFeature.GetEventsByDate(FacebookUser,i_Start,i_EndTime);
         }
 
         public KeyValuePair<int, User> GetMatch(string i_NextElement)

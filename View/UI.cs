@@ -12,13 +12,14 @@ namespace View
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            LoginForm loginForm = new LoginForm((User fbUser) => fbApp.FacebookUser = fbUser) ;
-                
-            Application.Run(loginForm);
+            LoginForm loginForm = new LoginForm((User fbUser) => fbApp.FacebookUser = fbUser);
+            if (loginForm.ShowDialog() != DialogResult.Abort)
+            {
 
-            Application.Run(new HomeForm(fbApp.FacebookUser,fbApp.InitFindLove,fbApp.GetMatch));
+                Application.Run(new HomeForm(fbApp.FacebookUser, fbApp.InitFindLove, fbApp.GetMatch, fbApp.GetEventsByDate));
 
-            FacebookApp.AppSettings.SaveToFile();
+                FacebookApp.AppSettings.SaveToFile();
+            }
         }
     }
 }
