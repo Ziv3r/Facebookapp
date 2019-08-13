@@ -66,8 +66,9 @@ namespace Model
             return Matcher.FriendsMatch[Matcher.IndexInMatchCollection];
         }
 
-        public List<Album> Albums() {
-            List<Album> res = new  List<Album>();
+        public List<Album> Albums()
+        {
+            List<Album> res = new List<Album>();
 
             foreach(Album album in FacebookUser.Albums)
             {

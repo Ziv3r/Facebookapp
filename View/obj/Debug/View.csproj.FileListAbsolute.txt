@@ -12,7 +12,6 @@ C:\Users\ziv3r\Desktop\summer semester\desgin patterns\C19 Ex01 Ziv 308445949 No
 C:\Users\ziv3r\Desktop\summer semester\desgin patterns\C19 Ex01 Ziv 308445949 Noam 313527822\View\obj\Debug\C19 Ex01 Ziv 308445949 Noam 313527822.exe
 C:\Users\ziv3r\Desktop\summer semester\desgin patterns\C19 Ex01 Ziv 308445949 Noam 313527822\View\bin\Debug\C19 Ex01 Ziv 308445949 Noam 313527822.exe.config
 C:\Users\ziv3r\Desktop\summer semester\desgin patterns\C19 Ex01 Ziv 308445949 Noam 313527822\View\bin\Debug\C19 Ex01 Ziv 308445949 Noam 313527822.exe
-C:\Users\noamlevy\Desktop\מכללה\שנה ב\סימסטר קיץ\DP\facebook project\Facebookapp\View\bin\Debug\C19 Ex01 Ziv 308445949 Noam 313527822.exe.config
 C:\Users\noamlevy\Desktop\מכללה\שנה ב\סימסטר קיץ\DP\facebook project\Facebookapp\View\bin\Debug\C19 Ex01 Ziv 308445949 Noam 313527822.exe
 C:\Users\noamlevy\Desktop\מכללה\שנה ב\סימסטר קיץ\DP\facebook project\Facebookapp\View\bin\Debug\C19 Ex01 Ziv 308445949 Noam 313527822.pdb
 C:\Users\noamlevy\Desktop\מכללה\שנה ב\סימסטר קיץ\DP\facebook project\Facebookapp\View\bin\Debug\Model.dll

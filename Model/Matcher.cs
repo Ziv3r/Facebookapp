@@ -26,8 +26,8 @@ namespace Model
         {
             ICollection<User> userBestMatches;
 
-            // this line should be applied for better match, facebook API doesnt provide friends gender though.
-            // userBestMatches = FaceBookUser.Friends.Where(friend => friend.Gender == i_GenderOfInterest).ToList<User>();
+            //// this line should be applied for better match, facebook API doesnt provide friends gender though.
+            //// userBestMatches = FaceBookUser.Friends.Where(friend => friend.Gender == i_GenderOfInterest).ToList<User>();
 
             userBestMatches = FaceBookUser.Friends;
 

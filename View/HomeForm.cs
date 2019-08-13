@@ -31,7 +31,7 @@ namespace View
 
         public User FaceBookUser { get; set; }
 
-        public List<String> ImagesByLocation { get; set; }
+        public List<string> ImagesByLocation { get; set; }
 
         public int ImageIndex { get; set; }
 
@@ -71,7 +71,7 @@ namespace View
             pictureBoxProfilePicture.LoadAsync(FaceBookUser.PictureNormalURL);
         }
 
-        private void HomeForm_Load(object sender, EventArgs e)
+        private void homeForm_Load(object sender, EventArgs e)
         {
         }
 
@@ -297,22 +297,21 @@ namespace View
 
         private void buttonSearchImage_Click(object sender, EventArgs e)
         {
-            
-                ImagesByLocation = TextBox_OnImageSearch(textBoxImageSearch.Text);
-                ImageIndex = -1;
-            if(ImagesByLocation.Count > 0)
+            ImagesByLocation = TextBox_OnImageSearch(textBoxImageSearch.Text);
+            ImageIndex = -1;
+            if (ImagesByLocation.Count > 0)
             {
                 pictureBoxRelaventPictures.LoadAsync(ImagesByLocation[++ImageIndex]);
+                buttonNextImage.Visible = buttonPrevImage.Visible = true;
             }
             else
             {
                 MessageBox.Show("No phots by this tag");
             }
-            
         }
         private void buttonNextImage_Click(object sender, EventArgs e)
         {
-            if(ImageIndex+1 >= ImagesByLocation.Count)
+            if (ImageIndex + 1 >= ImagesByLocation.Count)
             {
                 ImageIndex = -1;
             }
@@ -321,18 +320,18 @@ namespace View
 
         private void buttonPrevImage_Click(object sender, EventArgs e)
         {
-            if (ImageIndex -1  < 0 )
+            if (ImageIndex - 1 < 0)
             {
                 ImageIndex = ImagesByLocation.Count;
             }
-            pictureBoxRelaventPictures.LoadAsync(ImagesByLocation[--ImageIndex]);
 
+            pictureBoxRelaventPictures.LoadAsync(ImagesByLocation[--ImageIndex]);
         }
 
         private void buttonShowAlbums_Click(object sender, EventArgs e)
         {
-                ShowAlbums_Click().ForEach((album) => listBoxAlbums.Items.Add(album));
-                listBoxAlbums.DisplayMember = "Name";
+            ShowAlbums_Click().ForEach((album) => listBoxAlbums.Items.Add(album));
+            listBoxAlbums.DisplayMember = "Name";
         }
 
         private void listBoxAlbums_SelectedIndexChanged(object sender, EventArgs e)
@@ -342,7 +341,6 @@ namespace View
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-
         }
 
         private void tabPageAlbums_Click(object sender, EventArgs e)
@@ -351,12 +349,10 @@ namespace View
 
         private void labelImageSearch_Click(object sender, EventArgs e)
         {
-
         }
 
         private void label2_Click_1(object sender, EventArgs e)
         {
-
         }
         private void tabPage1_Click(object sender, EventArgs e)
         {
