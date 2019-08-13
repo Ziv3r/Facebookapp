@@ -218,10 +218,6 @@ namespace View
             buttonFindLove.Enabled = false;
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-        }
-
         private void buttonTinderLeft_Click(object sender, EventArgs e)
         {
             KeyValuePair<int, User> loveMatch = OnTinderSlide("left");
@@ -286,30 +282,6 @@ namespace View
             }
         }
 
-        private void pictureBoxTinder_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void labelGenderChoose_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void dateTimePickerEventEnd_ValueChanged(object sender, EventArgs e)
-        {
-        }
-
         private void buttonPickEventsByDate_Click(object sender, EventArgs e)
         {
             if (dateTimePickerEventEnd.Value < dateTimePickerEventStart.Value)
@@ -322,12 +294,6 @@ namespace View
                     .ForEach((i_Event) => listBoxEventsByDate.Items.Add(i_Event.Name));
             }
         }
-
-        private void textBoxImageSearch_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-       
 
         private void buttonSearchImage_Click(object sender, EventArgs e)
         {
@@ -362,19 +328,6 @@ namespace View
             pictureBoxRelaventPictures.LoadAsync(ImagesByLocation[--ImageIndex]);
 
         }
-        private void tabPageAlbums_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void labelImageSearch_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click_1(object sender, EventArgs e)
-        {
-
-        }
 
         private void buttonShowAlbums_Click(object sender, EventArgs e)
         {
@@ -392,11 +345,22 @@ namespace View
 
         }
 
-        private void pictureBoxAlbumPicture_Click(object sender, EventArgs e)
+        private void tabPageAlbums_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void labelImageSearch_Click(object sender, EventArgs e)
         {
 
         }
 
-      
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+        }
+
     }
 }

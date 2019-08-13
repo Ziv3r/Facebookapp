@@ -62,6 +62,13 @@
             this.listBoxPosts = new System.Windows.Forms.ListBox();
             this.buttonShowPosts = new System.Windows.Forms.Button();
             this.tabPageAlbums = new System.Windows.Forms.TabPage();
+            this.buttonNextImage = new System.Windows.Forms.Button();
+            this.buttonPrevImage = new System.Windows.Forms.Button();
+            this.labelFindByLocation = new System.Windows.Forms.Label();
+            this.pictureBoxRelaventPictures = new System.Windows.Forms.PictureBox();
+            this.pictureBoxAlbumPicture = new System.Windows.Forms.PictureBox();
+            this.listBoxAlbums = new System.Windows.Forms.ListBox();
+            this.buttonShowAlbums = new System.Windows.Forms.Button();
             this.buttonSearchImage = new System.Windows.Forms.Button();
             this.labelImageSearch = new System.Windows.Forms.Label();
             this.textBoxImageSearch = new System.Windows.Forms.TextBox();
@@ -74,13 +81,6 @@
             this.labelPostStatus = new System.Windows.Forms.Label();
             this.textBoxPost = new System.Windows.Forms.TextBox();
             this.buttonPost = new System.Windows.Forms.Button();
-            this.buttonShowAlbums = new System.Windows.Forms.Button();
-            this.listBoxAlbums = new System.Windows.Forms.ListBox();
-            this.pictureBoxAlbumPicture = new System.Windows.Forms.PictureBox();
-            this.pictureBoxRelaventPictures = new System.Windows.Forms.PictureBox();
-            this.labelFindByLocation = new System.Windows.Forms.Label();
-            this.buttonPrevImage = new System.Windows.Forms.Button();
-            this.buttonNextImage = new System.Windows.Forms.Button();
             this.tabControlGroups.SuspendLayout();
             this.tabPageFriends.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -91,9 +91,9 @@
             this.tabPageGroups.SuspendLayout();
             this.tabPagePosts.SuspendLayout();
             this.tabPageAlbums.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfilePicture)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAlbumPicture)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRelaventPictures)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAlbumPicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfilePicture)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControlGroups
@@ -103,7 +103,7 @@
             this.tabControlGroups.Controls.Add(this.tabPageGroups);
             this.tabControlGroups.Controls.Add(this.tabPagePosts);
             this.tabControlGroups.Controls.Add(this.tabPageAlbums);
-            this.tabControlGroups.Location = new System.Drawing.Point(12, 209);
+            this.tabControlGroups.Location = new System.Drawing.Point(12, 187);
             this.tabControlGroups.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControlGroups.Name = "tabControlGroups";
             this.tabControlGroups.SelectedIndex = 0;
@@ -144,7 +144,6 @@
             this.groupBox2.Size = new System.Drawing.Size(156, 118);
             this.groupBox2.TabIndex = 20;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // radioButtonFemale
             // 
@@ -157,7 +156,6 @@
             this.radioButtonFemale.TabStop = true;
             this.radioButtonFemale.Text = "Female";
             this.radioButtonFemale.UseVisualStyleBackColor = true;
-            this.radioButtonFemale.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // radioButtonMale
             // 
@@ -180,7 +178,6 @@
             this.labelGenderChoose.Size = new System.Drawing.Size(150, 22);
             this.labelGenderChoose.TabIndex = 16;
             this.labelGenderChoose.Text = "Choose Gender";
-            this.labelGenderChoose.Click += new System.EventHandler(this.labelGenderChoose_Click);
             // 
             // buttonTinderLeft
             // 
@@ -223,7 +220,6 @@
             this.pictureBoxTinder.Size = new System.Drawing.Size(168, 150);
             this.pictureBoxTinder.TabIndex = 12;
             this.pictureBoxTinder.TabStop = false;
-            this.pictureBoxTinder.Click += new System.EventHandler(this.pictureBoxTinder_Click);
             // 
             // buttonFindLove
             // 
@@ -329,7 +325,6 @@
             this.labelEventStart.Size = new System.Drawing.Size(48, 20);
             this.labelEventStart.TabIndex = 7;
             this.labelEventStart.Text = "Start:";
-            this.labelEventStart.Click += new System.EventHandler(this.label2_Click);
             // 
             // dateTimePickerEventEnd
             // 
@@ -339,7 +334,6 @@
             this.dateTimePickerEventEnd.Size = new System.Drawing.Size(249, 26);
             this.dateTimePickerEventEnd.TabIndex = 6;
             this.dateTimePickerEventEnd.Tag = "End";
-            this.dateTimePickerEventEnd.ValueChanged += new System.EventHandler(this.dateTimePickerEventEnd_ValueChanged);
             // 
             // dateTimePickerEventStart
             // 
@@ -484,6 +478,74 @@
             this.tabPageAlbums.UseVisualStyleBackColor = true;
             this.tabPageAlbums.Click += new System.EventHandler(this.tabPageAlbums_Click);
             // 
+            // buttonNextImage
+            // 
+            this.buttonNextImage.Location = new System.Drawing.Point(938, 190);
+            this.buttonNextImage.Name = "buttonNextImage";
+            this.buttonNextImage.Size = new System.Drawing.Size(47, 42);
+            this.buttonNextImage.TabIndex = 9;
+            this.buttonNextImage.Text = ">";
+            this.buttonNextImage.UseVisualStyleBackColor = true;
+            this.buttonNextImage.Click += new System.EventHandler(this.buttonNextImage_Click);
+            // 
+            // buttonPrevImage
+            // 
+            this.buttonPrevImage.Location = new System.Drawing.Point(717, 192);
+            this.buttonPrevImage.Name = "buttonPrevImage";
+            this.buttonPrevImage.Size = new System.Drawing.Size(47, 41);
+            this.buttonPrevImage.TabIndex = 8;
+            this.buttonPrevImage.Text = "<";
+            this.buttonPrevImage.UseVisualStyleBackColor = true;
+            this.buttonPrevImage.Click += new System.EventHandler(this.buttonPrevImage_Click);
+            // 
+            // labelFindByLocation
+            // 
+            this.labelFindByLocation.AutoSize = true;
+            this.labelFindByLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.labelFindByLocation.Location = new System.Drawing.Point(794, 22);
+            this.labelFindByLocation.Name = "labelFindByLocation";
+            this.labelFindByLocation.Size = new System.Drawing.Size(108, 25);
+            this.labelFindByLocation.TabIndex = 7;
+            this.labelFindByLocation.Text = "Find by tag";
+            // 
+            // pictureBoxRelaventPictures
+            // 
+            this.pictureBoxRelaventPictures.Location = new System.Drawing.Point(787, 163);
+            this.pictureBoxRelaventPictures.Name = "pictureBoxRelaventPictures";
+            this.pictureBoxRelaventPictures.Size = new System.Drawing.Size(134, 124);
+            this.pictureBoxRelaventPictures.TabIndex = 6;
+            this.pictureBoxRelaventPictures.TabStop = false;
+            // 
+            // pictureBoxAlbumPicture
+            // 
+            this.pictureBoxAlbumPicture.Location = new System.Drawing.Point(235, 86);
+            this.pictureBoxAlbumPicture.Name = "pictureBoxAlbumPicture";
+            this.pictureBoxAlbumPicture.Size = new System.Drawing.Size(113, 105);
+            this.pictureBoxAlbumPicture.TabIndex = 5;
+            this.pictureBoxAlbumPicture.TabStop = false;
+            // 
+            // listBoxAlbums
+            // 
+            this.listBoxAlbums.FormattingEnabled = true;
+            this.listBoxAlbums.ItemHeight = 20;
+            this.listBoxAlbums.Location = new System.Drawing.Point(20, 86);
+            this.listBoxAlbums.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listBoxAlbums.Name = "listBoxAlbums";
+            this.listBoxAlbums.Size = new System.Drawing.Size(193, 264);
+            this.listBoxAlbums.TabIndex = 4;
+            this.listBoxAlbums.SelectedIndexChanged += new System.EventHandler(this.listBoxAlbums_SelectedIndexChanged);
+            // 
+            // buttonShowAlbums
+            // 
+            this.buttonShowAlbums.Location = new System.Drawing.Point(20, 22);
+            this.buttonShowAlbums.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonShowAlbums.Name = "buttonShowAlbums";
+            this.buttonShowAlbums.Size = new System.Drawing.Size(194, 60);
+            this.buttonShowAlbums.TabIndex = 3;
+            this.buttonShowAlbums.Text = "Show Albums";
+            this.buttonShowAlbums.UseVisualStyleBackColor = true;
+            this.buttonShowAlbums.Click += new System.EventHandler(this.buttonShowAlbums_Click);
+            // 
             // buttonSearchImage
             // 
             this.buttonSearchImage.Location = new System.Drawing.Point(787, 107);
@@ -513,7 +575,6 @@
             this.textBoxImageSearch.Size = new System.Drawing.Size(132, 26);
             this.textBoxImageSearch.TabIndex = 0;
             this.textBoxImageSearch.Tag = "";
-            this.textBoxImageSearch.TextChanged += new System.EventHandler(this.textBoxImageSearch_TextChanged);
             // 
             // pictureBoxProfilePicture
             // 
@@ -599,77 +660,6 @@
             this.buttonPost.UseVisualStyleBackColor = true;
             this.buttonPost.Click += new System.EventHandler(this.buttonPost_Click);
             // 
-            // buttonShowAlbums
-            // 
-            this.buttonShowAlbums.Location = new System.Drawing.Point(20, 22);
-            this.buttonShowAlbums.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonShowAlbums.Name = "buttonShowAlbums";
-            this.buttonShowAlbums.Size = new System.Drawing.Size(194, 60);
-            this.buttonShowAlbums.TabIndex = 3;
-            this.buttonShowAlbums.Text = "Show Albums";
-            this.buttonShowAlbums.UseVisualStyleBackColor = true;
-            this.buttonShowAlbums.Click += new System.EventHandler(this.buttonShowAlbums_Click);
-            // 
-            // listBoxAlbums
-            // 
-            this.listBoxAlbums.FormattingEnabled = true;
-            this.listBoxAlbums.ItemHeight = 20;
-            this.listBoxAlbums.Location = new System.Drawing.Point(20, 86);
-            this.listBoxAlbums.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.listBoxAlbums.Name = "listBoxAlbums";
-            this.listBoxAlbums.Size = new System.Drawing.Size(193, 264);
-            this.listBoxAlbums.TabIndex = 4;
-            this.listBoxAlbums.SelectedIndexChanged += new System.EventHandler(this.listBoxAlbums_SelectedIndexChanged);
-            // 
-            // pictureBoxAlbumPicture
-            // 
-            this.pictureBoxAlbumPicture.Location = new System.Drawing.Point(235, 86);
-            this.pictureBoxAlbumPicture.Name = "pictureBoxAlbumPicture";
-            this.pictureBoxAlbumPicture.Size = new System.Drawing.Size(113, 105);
-            this.pictureBoxAlbumPicture.TabIndex = 5;
-            this.pictureBoxAlbumPicture.TabStop = false;
-            this.pictureBoxAlbumPicture.Click += new System.EventHandler(this.pictureBoxAlbumPicture_Click);
-            // 
-            // pictureBoxRelaventPictures
-            // 
-            this.pictureBoxRelaventPictures.Location = new System.Drawing.Point(787, 163);
-            this.pictureBoxRelaventPictures.Name = "pictureBoxRelaventPictures";
-            this.pictureBoxRelaventPictures.Size = new System.Drawing.Size(134, 124);
-            this.pictureBoxRelaventPictures.TabIndex = 6;
-            this.pictureBoxRelaventPictures.TabStop = false;
-            this.pictureBoxRelaventPictures.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
-            // labelFindByLocation
-            // 
-            this.labelFindByLocation.AutoSize = true;
-            this.labelFindByLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
-            this.labelFindByLocation.Location = new System.Drawing.Point(794, 22);
-            this.labelFindByLocation.Name = "labelFindByLocation";
-            this.labelFindByLocation.Size = new System.Drawing.Size(108, 25);
-            this.labelFindByLocation.TabIndex = 7;
-            this.labelFindByLocation.Text = "Find by tag";
-            this.labelFindByLocation.Click += new System.EventHandler(this.label2_Click_1);
-            // 
-            // buttonPrevImage
-            // 
-            this.buttonPrevImage.Location = new System.Drawing.Point(717, 192);
-            this.buttonPrevImage.Name = "buttonPrevImage";
-            this.buttonPrevImage.Size = new System.Drawing.Size(47, 41);
-            this.buttonPrevImage.TabIndex = 8;
-            this.buttonPrevImage.Text = "<";
-            this.buttonPrevImage.UseVisualStyleBackColor = true;
-            this.buttonPrevImage.Click += new System.EventHandler(this.buttonPrevImage_Click);
-            // 
-            // buttonNextImage
-            // 
-            this.buttonNextImage.Location = new System.Drawing.Point(938, 190);
-            this.buttonNextImage.Name = "buttonNextImage";
-            this.buttonNextImage.Size = new System.Drawing.Size(47, 42);
-            this.buttonNextImage.TabIndex = 9;
-            this.buttonNextImage.Text = ">";
-            this.buttonNextImage.UseVisualStyleBackColor = true;
-            this.buttonNextImage.Click += new System.EventHandler(this.buttonNextImage_Click);
-            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -704,9 +694,9 @@
             this.tabPagePosts.ResumeLayout(false);
             this.tabPageAlbums.ResumeLayout(false);
             this.tabPageAlbums.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfilePicture)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAlbumPicture)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRelaventPictures)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAlbumPicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProfilePicture)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
