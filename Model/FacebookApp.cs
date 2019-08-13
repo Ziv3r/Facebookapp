@@ -32,9 +32,7 @@ namespace Model
                 throw new ArgumentException("find love feature already initiated");
             }
 
-            Matcher.FriendsMatch = new List<KeyValuePair<int, User>>();
-            Matcher.FriendsMatch = Matcher.GetMatch(i_GenderOfInterest);
-            Matcher.IndexInMatchCollection = -1; // for first increament
+            Matcher.InitMatches(i_GenderOfInterest);
 
             if (Matcher.FriendsMatch.Count == 0)
             {

@@ -49,6 +49,13 @@ namespace Model
             return FriendsMatch.OrderByDescending(x => x.Key).ToList();
         }
 
+        public void InitMatches(User.eGender i_GenderOfInterest)
+        {
+            FriendsMatch = new List<KeyValuePair<int, User>>();
+            FriendsMatch = GetMatch(i_GenderOfInterest);
+            IndexInMatchCollection = -1;  // for first increament
+        }
+
         private int addToScore<T>(ICollection<T> i_TargetElements, ICollection<T> i_Source, int i_ToAdd)
         {
             int addToScore = 0;
@@ -64,21 +71,3 @@ namespace Model
         }
     }
 }
-
-/*
-   foreach (Event currentEvent in friend.Events)
-                {
-                    if (FaceBookUser.Events.Contains(currentEvent))
-                    {
-                        friendScore += k_AttendigToSameEvent;
-                    }
-                }
-                
-                /*
-                foreach (Checkin checkIn in friend.Checkins)
-                {
-                    if (FaceBookUser.Checkins.Contains(checkIn))
-                    {
-                        friendScore += k_samePlaceCheckedId;
-                    }
-                }*/
