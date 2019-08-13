@@ -15,6 +15,8 @@ namespace View
 
     public delegate List<string> OnSearchImage(string i_Tag);
 
+    public delegate List<Album> OnShowAlbums();
+
     public partial class HomeForm : Form
     {
         public event OnFindLove OnFindLove;
@@ -25,20 +27,28 @@ namespace View
 
         public event OnSearchImage TextBox_OnImageSearch;
 
+        public event OnShowAlbums ShowAlbums_Click;
+
         public User FaceBookUser { get; set; }
+
+        public List<String> ImagesByLocation { get; set; }
+
+        public int ImageIndex { get; set; }
 
         public HomeForm(
             User i_FaceBookUser,
             OnFindLove i_OnFindLove,
             OnTinderSlide i_TinderSlide,
             OnPickEvent i_OnPickEventsByDate,
-            OnSearchImage i_OnSearchImages)
+            OnSearchImage i_OnSearchImages,
+            OnShowAlbums i_OnShowAlbums)
         {
             FaceBookUser = i_FaceBookUser;
             OnFindLove += i_OnFindLove;
             OnTinderSlide += i_TinderSlide;
             OnPickEventsByDate += i_OnPickEventsByDate;
             TextBox_OnImageSearch += i_OnSearchImages;
+            ShowAlbums_Click += i_OnShowAlbums;
 
             FacebookWrapper.FacebookService.s_CollectionLimit = 200;
             FacebookWrapper.FacebookService.s_FbApiVersion = 2.8f;
@@ -317,37 +327,76 @@ namespace View
         {
         }
 
-        private Image LoadImage(string i_URL)
-        {
-            System.Net.WebRequest request = System.Net.WebRequest.Create(i_URL);
-
-            System.Net.WebResponse response = request.GetResponse();
-            System.IO.Stream responseStream = response.GetResponseStream();
-
-            Bitmap bmp = new Bitmap(responseStream);
-
-            responseStream.Dispose();
-
-            return bmp;
-        }
+       
 
         private void buttonSearchImage_Click(object sender, EventArgs e)
         {
-            ImageList imageList = new ImageList();
-            TextBox_OnImageSearch(textBoxImageSearch.Text).ForEach(url => imageList.Images.Add(LoadImage(url)));
-
-            // listViewImages.View = View.LargeIcon;
-            listViewImages.SmallImageList = imageList;
-
-            for (int i = 0; i < imageList.Images.Count; i++)
+            
+                ImagesByLocation = TextBox_OnImageSearch(textBoxImageSearch.Text);
+                ImageIndex = -1;
+            if(ImagesByLocation.Count > 0)
             {
-                ListViewItem lvi = new ListViewItem("koala " + i.ToString(), i);
-                listViewImages.Items.Add(lvi);
+                pictureBoxRelaventPictures.LoadAsync(ImagesByLocation[++ImageIndex]);
             }
+            else
+            {
+                MessageBox.Show("No phots by this tag");
+            }
+            
+        }
+        private void buttonNextImage_Click(object sender, EventArgs e)
+        {
+            if(ImageIndex+1 >= ImagesByLocation.Count)
+            {
+                ImageIndex = -1;
+            }
+            pictureBoxRelaventPictures.LoadAsync(ImagesByLocation[++ImageIndex]);
         }
 
+        private void buttonPrevImage_Click(object sender, EventArgs e)
+        {
+            if (ImageIndex -1  < 0 )
+            {
+                ImageIndex = ImagesByLocation.Count;
+            }
+            pictureBoxRelaventPictures.LoadAsync(ImagesByLocation[--ImageIndex]);
+
+        }
         private void tabPageAlbums_Click(object sender, EventArgs e)
         {
         }
+
+        private void labelImageSearch_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonShowAlbums_Click(object sender, EventArgs e)
+        {
+                ShowAlbums_Click().ForEach((album) => listBoxAlbums.Items.Add(album));
+                listBoxAlbums.DisplayMember = "Name";
+        }
+
+        private void listBoxAlbums_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            pictureBoxAlbumPicture.LoadAsync((listBoxAlbums.Items[listBoxAlbums.SelectedIndex] as Album).PictureAlbumURL);
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBoxAlbumPicture_Click(object sender, EventArgs e)
+        {
+
+        }
+
+      
     }
 }

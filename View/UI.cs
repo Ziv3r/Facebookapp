@@ -20,7 +20,8 @@ namespace View
                     fbApp.InitFindLove,
                     fbApp.GetMatch,
                     fbApp.GetEventsByDate,
-                    fbApp.GetImagesByTag));
+                    fbApp.GetImagesByTag,
+                    fbApp.Albums));
 
                 FacebookApp.AppSettings.SaveToFile();
             }

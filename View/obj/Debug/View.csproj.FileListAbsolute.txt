@@ -26,3 +26,18 @@ C:\Users\noamlevy\Desktop\מכללה\שנה ב\סימסטר קיץ\DP\facebook p
 C:\Users\noamlevy\Desktop\מכללה\שנה ב\סימסטר קיץ\DP\facebook project\Facebookapp\View\obj\Debug\View.csproj.CopyComplete
 C:\Users\noamlevy\Desktop\מכללה\שנה ב\סימסטר קיץ\DP\facebook project\Facebookapp\View\obj\Debug\C19 Ex01 Ziv 308445949 Noam 313527822.exe
 C:\Users\noamlevy\Desktop\מכללה\שנה ב\סימסטר קיץ\DP\facebook project\Facebookapp\View\obj\Debug\C19 Ex01 Ziv 308445949 Noam 313527822.pdb
+C:\Users\ziv3r\Desktop\‏‏תיקיה חדשה (2)\Facebookapp\View\obj\Debug\C19 Ex01 Ziv 308445949 Noam 313527822.exe
+C:\Users\ziv3r\Desktop\‏‏תיקיה חדשה (2)\Facebookapp\View\obj\Debug\C19 Ex01 Ziv 308445949 Noam 313527822.pdb
+C:\Users\ziv3r\Desktop\‏‏תיקיה חדשה (2)\Facebookapp\View\bin\Debug\C19 Ex01 Ziv 308445949 Noam 313527822.exe
+C:\Users\ziv3r\Desktop\‏‏תיקיה חדשה (2)\Facebookapp\View\bin\Debug\C19 Ex01 Ziv 308445949 Noam 313527822.pdb
+C:\Users\ziv3r\Desktop\‏‏תיקיה חדשה (2)\Facebookapp\View\bin\Debug\Facebook.dll
+C:\Users\ziv3r\Desktop\‏‏תיקיה חדשה (2)\Facebookapp\View\bin\Debug\FbGraphApiWrapper.dll
+C:\Users\ziv3r\Desktop\‏‏תיקיה חדשה (2)\Facebookapp\View\bin\Debug\Model.dll
+C:\Users\ziv3r\Desktop\‏‏תיקיה חדשה (2)\Facebookapp\View\bin\Debug\Model.pdb
+C:\Users\ziv3r\Desktop\‏‏תיקיה חדשה (2)\Facebookapp\View\obj\Debug\View.csprojAssemblyReference.cache
+C:\Users\ziv3r\Desktop\‏‏תיקיה חדשה (2)\Facebookapp\View\obj\Debug\View.HomeForm.resources
+C:\Users\ziv3r\Desktop\‏‏תיקיה חדשה (2)\Facebookapp\View\obj\Debug\View.LoginForm.resources
+C:\Users\ziv3r\Desktop\‏‏תיקיה חדשה (2)\Facebookapp\View\obj\Debug\C19_Ex01_Ziv_308445949_Noam_313527822.Properties.Resources.resources
+C:\Users\ziv3r\Desktop\‏‏תיקיה חדשה (2)\Facebookapp\View\obj\Debug\View.csproj.GenerateResource.cache
+C:\Users\ziv3r\Desktop\‏‏תיקיה חדשה (2)\Facebookapp\View\obj\Debug\View.csproj.CoreCompileInputs.cache
+C:\Users\ziv3r\Desktop\‏‏תיקיה חדשה (2)\Facebookapp\View\obj\Debug\View.csproj.CopyComplete

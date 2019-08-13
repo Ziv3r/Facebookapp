@@ -14,3 +14,10 @@ C:\Users\noamlevy\Desktop\מכללה\שנה ב\סימסטר קיץ\DP\facebook p
 C:\Users\noamlevy\Desktop\מכללה\שנה ב\סימסטר קיץ\DP\facebook project\Facebookapp\Model\bin\Debug\Model.dll
 C:\Users\noamlevy\Desktop\מכללה\שנה ב\סימסטר קיץ\DP\facebook project\Facebookapp\Model\bin\Debug\Model.pdb
 C:\Users\noamlevy\Desktop\מכללה\שנה ב\סימסטר קיץ\DP\facebook project\Facebookapp\Model\obj\Debug\Model.csproj.CopyComplete
+C:\Users\ziv3r\Desktop\‏‏תיקיה חדשה (2)\Facebookapp\Model\obj\Debug\Model.csprojAssemblyReference.cache
+C:\Users\ziv3r\Desktop\‏‏תיקיה חדשה (2)\Facebookapp\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\ziv3r\Desktop\‏‏תיקיה חדשה (2)\Facebookapp\Model\obj\Debug\Model.dll
+C:\Users\ziv3r\Desktop\‏‏תיקיה חדשה (2)\Facebookapp\Model\obj\Debug\Model.pdb
+C:\Users\ziv3r\Desktop\‏‏תיקיה חדשה (2)\Facebookapp\Model\bin\Debug\Model.dll
+C:\Users\ziv3r\Desktop\‏‏תיקיה חדשה (2)\Facebookapp\Model\bin\Debug\Model.pdb
+C:\Users\ziv3r\Desktop\‏‏תיקיה חדשה (2)\Facebookapp\Model\obj\Debug\Model.csproj.CopyComplete
